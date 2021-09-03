@@ -19,7 +19,6 @@ mas "WhatsApp", id: 1147396723
 cask "google-chrome"
 cask "discord"
 cask "google-drive"
-cask "google-backup-and-sync"
 cask "iterm2"
 cask "postman"
 cask "spotify"
