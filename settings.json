@@ -1,0 +1,23 @@
+{
+  "workbench.colorTheme": "Sea Green Theme",
+  "editor.formatOnSave": true,
+  "emmet.includeLanguages": {
+    "ejs": "html",
+    "javascript": "javascriptreact"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "workbench.iconTheme": "vscode-icons",
+  "html.validate.scripts": false,
+  "javascript.preferences.quoteStyle": "single",
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "HookyQR.beautify"
+  },
+  "latex-workshop.view.pdf.viewer": "tab"
+}
