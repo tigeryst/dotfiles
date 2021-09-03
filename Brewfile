@@ -1,22 +1,7 @@
 brew "python"
 brew "mysql"
 brew "node"
-brew "git"
-brew "mackup"
-brew "heroku/brew/heroku"
-
-cask "google-chrome"
-cask "google-drive"
-cask "google-backup-and-sync"
-cask "spotify"
-cask "spectacle"
-cask "iterm2"
-cask "postman"
-cask "zoom"
-cask "visual-studio-code"
-cask "mactex-no-gui"
-cask "discord"
-cask "trader-workstation"
+brew "heroku"
 
 mas "CopyClip", id: 1020812363
 mas "GoodNotes", id: 1444383602
@@ -30,3 +15,16 @@ mas "Telegram", id: 747648890
 mas "Twitter", id: 1482454543
 mas "WeChat", id: 836500024
 mas "WhatsApp", id: 1147396723
+
+cask "google-chrome"
+cask "discord"
+cask "google-drive"
+cask "google-backup-and-sync"
+cask "iterm2"
+cask "postman"
+cask "spotify"
+cask "spectacle"
+cask "visual-studio-code"
+cask "zoom"
+cask "trader-workstation"
+cask "mactex-no-gui"
