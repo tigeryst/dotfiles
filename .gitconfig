@@ -1,0 +1,7 @@
+[user]
+	name = Tiger Yotsawat
+	email = tigeryotsawat@gmail.com
+[credential]
+	helper = osxkeychain
+[init]
+	defaultBranch = main

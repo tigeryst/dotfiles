@@ -51,6 +51,7 @@ brew cleanup
 npm install -g concurrently
 npm install -g nodemon
 npm install -g sass
+npm install -g npm-check-updates
 
 # Set default MySQL root password and auth type
 # mysql -u root -e "ALTER USER root@localhost IDENTIFIED WITH mysql_native_password BY 'password'; FLUSH PRIVILEGES;"

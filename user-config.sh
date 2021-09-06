@@ -4,6 +4,9 @@
 rm -f $HOME/.zshrc
 ln -s $HOME/.dotfiles/.zshrc $HOME/.zshrc
 
+rm -f $HOME/.gitconfig
+ln -s $HOME/.dotfiles/.gitconfig $HOME/.gitconfig
+
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions plugins/zsh-autosuggestions
 

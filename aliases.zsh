@@ -5,11 +5,14 @@ alias reloadshell="source $HOME/.zshrc"
 # alias ll="/usr/local/opt/coreutils/libexec/gnubin/ls -AhlFo --color --group-directories-first"
 # alias phpstorm='open -a /Applications/PhpStorm.app "`pwd`"'
 alias shrug="echo '¯\_(ツ)_/¯' | pbcopy"
+alias relaunch="defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock"
 # alias c="clear"
 
 # Directories
 alias dotfiles="cd $DOTFILES"
 alias library="cd $HOME/Library"
+alias desktop="cd $HOME/Desktop"
+alias projects="cd $HOME/Projects"
 # alias sites="cd $HOME/Sites"
 # alias lara="sites && cd laravel/"
 # alias docs="lara && cd docs/"
