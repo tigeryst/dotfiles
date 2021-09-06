@@ -2,6 +2,7 @@ brew "python"
 brew "mysql"
 brew "node"
 brew "heroku"
+brew "mongodb-community"
 
 mas "CopyClip", id: 1020812363
 mas "GoodNotes", id: 1444383602

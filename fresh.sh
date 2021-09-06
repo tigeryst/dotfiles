@@ -42,11 +42,17 @@ brew update
 # Install all our dependencies with bundle (See Brewfile)
 brew tap homebrew/bundle
 brew tap homebrew/cask
+brew tap homebrew/services
 brew tap heroku/brew
+brew tap mongodb/brew
 brew install mas
 brew bundle
 brew upgrade
 brew cleanup
+
+# Start local database services
+brew services start mysql
+brew services start mongodb-community
 
 npm install -g concurrently
 npm install -g nodemon
