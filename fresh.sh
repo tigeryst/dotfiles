@@ -54,9 +54,6 @@ brew cleanup
 brew services start mysql
 brew services start mongodb-community
 
-npm install -g concurrently
-npm install -g nodemon
-npm install -g sass
 npm install -g npm-check-updates
 
 # Set default MySQL root password and auth type
