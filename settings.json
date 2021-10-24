@@ -19,5 +19,8 @@
   "[html]": {
     "editor.defaultFormatter": "HookyQR.beautify"
   },
-  "latex-workshop.view.pdf.viewer": "tab"
+  "latex-workshop.view.pdf.viewer": "tab",
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  }
 }

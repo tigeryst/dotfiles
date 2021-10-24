@@ -4,10 +4,19 @@
 rm -f $HOME/.zshrc
 ln -s $HOME/.dotfiles/.zshrc $HOME/.zshrc
 
+echo "Setting up git..."
+read check"?Ensure that you have your github credentials saved to your Keychain then press enter to continue... "
 rm -f $HOME/.gitconfig
 ln -s $HOME/.dotfiles/.gitconfig $HOME/.gitconfig
 
+if [ -d plugins/zsh-syntax-highlighting ]; then
+    rm -rf plugins/zsh-syntax-highlighting
+fi
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git plugins/zsh-syntax-highlighting
+
+if [ -d plugins/zsh-autosuggestions ]; then
+    rm -rf plugins/zsh-autosuggestions
+fi
 git clone https://github.com/zsh-users/zsh-autosuggestions plugins/zsh-autosuggestions
 
 # Symlink the Mackup config file to the home directory
@@ -15,7 +24,6 @@ git clone https://github.com/zsh-users/zsh-autosuggestions plugins/zsh-autosugge
 
 rm -f $HOME/Library/Application\ Support/Code/User/settings.json
 ln -s $HOME/.dotfiles/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
-
 
 # Set macOS preferences - we will run this last because this will reload the shell
 source .macos

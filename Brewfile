@@ -1,3 +1,9 @@
+tap "homebrew/cask"
+tap "homebrew/services"
+tap "heroku/brew"
+tap "mongodb/brew"
+
+brew "mas"
 brew "python"
 brew "mysql"
 brew "node"

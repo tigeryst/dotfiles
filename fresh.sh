@@ -3,30 +3,30 @@
 echo "Setting up your Mac..."
 
 if [ -f ~/.osx-bootstrapped.txt ]; then
-cat << EOF
-~/.osx-bootstrapped.txt FOUND!
+  cat <<EOF
+~/.osx-bootstrapped.txt found!
 This laptop has already been bootstrapped.
 Exiting. No changes were made.
 EOF
-exit 0
+  exit 0
 fi
 
-XCODE_IS_INSTALLED=$(which xcode-select)
-
 # Install Xcode
-if test ! $(which xcode-select); then
+if type xcode-select >&- &&
+  xpath=$(xcode-select --print-path) &&
+  test -d "${xpath}" && test -x "${xpath}"; then
   echo "Installing Xcode"
   xcode-select --install
 fi
 
 # Check for Oh My Zsh and install if we don't have it
-if test ! $(which omz); then
+if [ -d ~/.oh-my-zsh ]; then
   echo "Installing Oh My Zsh"
   /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/HEAD/tools/install.sh)"
 fi
 
 # Check for Homebrew and install if we don't have it
-if test ! $(which brew); then
+if ! command -v brew &>/dev/null; then
   echo "Installing Homebrew"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
@@ -35,18 +35,19 @@ fi
 sudo -v
 
 # Keep-alive: update existing `sudo` time stamp until `.macos` has finished
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+while true; do
+  sudo -n true
+  sleep 60
+  kill -0 "$$" || exit
+done 2>/dev/null &
 
 # Update Homebrew recipes
 brew update
+
+echo "Installing applications"
+read check"?Ensure that you are logged in to the App Store with your Apple ID then press enter to continue... "
 # Install all our dependencies with bundle (See Brewfile)
-brew tap homebrew/bundle
-brew tap homebrew/cask
-brew tap homebrew/services
-brew tap heroku/brew
-brew tap mongodb/brew
-brew install mas
-brew bundle
+brew bundle || true
 brew upgrade
 brew cleanup
 
@@ -84,3 +85,6 @@ source .vscode
 touch $HOME/.osx-bootstrapped.txt
 
 source user-config.sh
+
+echo "Set up of your Mac is completed"
+echo 'Enjoy!'
