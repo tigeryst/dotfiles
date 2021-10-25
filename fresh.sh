@@ -45,7 +45,8 @@ done 2>/dev/null &
 brew update
 
 echo "Installing applications"
-read check"?Ensure that you are logged in to the App Store with your Apple ID then press enter to continue... "
+echo -n "Ensure that you are logged in to the App Store with your Apple ID then press enter to continue... "
+read check
 # Install all our dependencies with bundle (See Brewfile)
 brew bundle || true
 brew upgrade
