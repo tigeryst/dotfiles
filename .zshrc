@@ -88,7 +88,7 @@ plugins=(
     pip
     python
     brew
-    osx
+    macos
     zsh-autosuggestions
     zsh-syntax-highlighting
 )
