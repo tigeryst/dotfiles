@@ -56,6 +56,10 @@ brew cleanup
 brew services start mysql
 brew services start mongodb-community
 
+# Install heroku plugins
+heroku plugins:install heroku-repo
+heroku plugins:install heroku-accounts
+
 npm install -g npm-check-updates
 
 # Set default MySQL root password and auth type
