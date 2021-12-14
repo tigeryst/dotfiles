@@ -8,7 +8,6 @@ code --install-extension hookyqr.beautify                        # Beautify
 code --install-extension esbenp.prettier-vscode                  # Prettier
 code --install-extension foxundermoon.shell-format               # Shell-Format
 code --install-extension aaron-bond.better-comments              # Better Comments
-code --install-extension coenraads.bracket-pair-colorizer        # Bracket Pair Colorizer
 code --install-extension oouo-diogo-perdigao.docthis             # Document This
 code --install-extension jbockle.jbockle-format-files            # Format Files
 code --install-extension khaeransori.json2csv                    # JSON to CSV

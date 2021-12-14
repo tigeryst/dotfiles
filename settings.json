@@ -1,6 +1,8 @@
 {
   "workbench.colorTheme": "Sea Green Theme",
   "editor.formatOnSave": true,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
   "emmet.includeLanguages": {
     "ejs": "html",
     "javascript": "javascriptreact"
