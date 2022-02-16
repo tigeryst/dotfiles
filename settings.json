@@ -24,5 +24,8 @@
   "latex-workshop.view.pdf.viewer": "tab",
   "[shellscript]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
-  }
+  },
+  "files.autoSave": "afterDelay",
+  "explorer.confirmDragAndDrop": false,
+  "javascript.updateImportsOnFileMove.enabled": "never"
 }

@@ -61,6 +61,7 @@ heroku plugins:install heroku-repo
 heroku plugins:install heroku-accounts
 
 npm install -g npm-check-updates
+npm install -g n
 
 # Set default MySQL root password and auth type
 # mysql -u root -e "ALTER USER root@localhost IDENTIFIED WITH mysql_native_password BY 'password'; FLUSH PRIVILEGES;"
