@@ -63,6 +63,9 @@ heroku plugins:install heroku-accounts
 npm install -g npm-check-updates
 npm install -g n
 
+# Install haskell
+curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+
 # Set default MySQL root password and auth type
 # mysql -u root -e "ALTER USER root@localhost IDENTIFIED WITH mysql_native_password BY 'password'; FLUSH PRIVILEGES;"
 

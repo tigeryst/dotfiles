@@ -23,8 +23,13 @@ git clone https://github.com/zsh-users/zsh-autosuggestions plugins/zsh-autosugge
 # Symlink the Mackup config file to the home directory
 # ln -s $HOME/.dotfiles/.mackup.cfg $HOME/.mackup.cfg
 
+# Symlink VS Code settings
 rm -f $HOME/Library/Application\ Support/Code/User/settings.json
 ln -s $HOME/.dotfiles/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
+
+# Symlink the .ghci file for haskell
+rm -f $HOME/.ghci
+ln -s $HOME/.dotfiles/.ghci $HOME/.ghci
 
 # Set macOS preferences - we will run this last because this will reload the shell
 script_name=$(basename ${0#-})
