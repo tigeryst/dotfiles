@@ -130,3 +130,6 @@ export UPDATE_ZSH_DAYS=13
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# pyenv
+eval "$(pyenv init -)"

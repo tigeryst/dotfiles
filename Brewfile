@@ -4,7 +4,7 @@ tap "heroku/brew"
 tap "mongodb/brew"
 
 brew "mas"
-brew "python"
+brew "pyenv"
 brew "mysql"
 brew "node"
 brew "heroku"

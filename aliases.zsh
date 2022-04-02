@@ -30,6 +30,9 @@ alias projects="cd $HOME/Projects"
 alias nfresh="rm -rf node_modules/ package-lock.json && npm install"
 # alias watch="npm run watch"
 
+# Python
+# alias python="python3"
+
 # Docker
 # alias docker-composer="docker-compose"
 
@@ -53,3 +56,6 @@ alias nfresh="rm -rf node_modules/ package-lock.json && npm install"
 # alias stash="git stash -u"
 alias unstage="git restore --staged ."
 # alias wip="commit wip"
+
+# Python
+alias python="$(pyenv which python)"
