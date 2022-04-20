@@ -63,6 +63,10 @@ heroku plugins:install heroku-accounts
 npm install -g npm-check-updates
 npm install -g n
 
+# Install Python packages
+pip install ipython
+pip install virtualenv
+
 # Install haskell
 curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 
