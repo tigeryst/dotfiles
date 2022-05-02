@@ -56,6 +56,3 @@ alias nfresh="rm -rf node_modules/ package-lock.json && npm install"
 # alias stash="git stash -u"
 alias unstage="git restore --staged ."
 # alias wip="commit wip"
-
-# Python
-alias python="$(pyenv which python)"

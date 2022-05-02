@@ -84,15 +84,15 @@ ZSH_DISABLE_COMPFIX=true
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    git
-    colored-man-pages
-    colorize
-    pip
-    python
-    brew
-    macos
-    zsh-autosuggestions
-    zsh-syntax-highlighting
+  git
+  colored-man-pages
+  colorize
+  pip
+  python
+  brew
+  macos
+  zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -131,5 +131,9 @@ export UPDATE_ZSH_DAYS=13
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# pyenv
-eval "$(pyenv init -)"
+if command -v pyenv 1>/dev/null 2>&1; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init --path)"
+  eval "$(pyenv init -)"
+fi
