@@ -28,6 +28,7 @@ alias projects="cd $HOME/Projects"
 
 # JS
 alias nfresh="rm -rf node_modules/ package-lock.json && npm install"
+alias nupdate="ncu -u && npm update"
 # alias watch="npm run watch"
 
 # Python
@@ -54,5 +55,5 @@ alias nfresh="rm -rf node_modules/ package-lock.json && npm install"
 # alias push="git push"
 # alias resolve="git add . && git commit --no-edit"
 # alias stash="git stash -u"
-alias unstage="git restore --staged ."
+# alias unstage="git restore --staged ."
 # alias wip="commit wip"
