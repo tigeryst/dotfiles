@@ -1,13 +1,11 @@
 tap "homebrew/cask"
 tap "homebrew/services"
-tap "heroku/brew"
 tap "mongodb/brew"
 
 brew "mas"
 brew "pyenv"
 brew "mysql"
 brew "node"
-brew "heroku"
 brew "mongodb-community"
 
 mas "CopyClip", id: 1020812363
@@ -34,7 +32,4 @@ cask "spectacle"
 cask "visual-studio-code"
 cask "zoom"
 cask "steam"
-cask "dbeaver-community"
-cask "trader-workstation"
 cask "mactex-no-gui"
-cask "keyboard-maestro"

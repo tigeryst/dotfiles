@@ -56,12 +56,9 @@ brew cleanup
 brew services start mysql
 brew services start mongodb-community
 
-# Install heroku plugins
-heroku plugins:install heroku-repo
-heroku plugins:install heroku-accounts
-
 npm install -g npm-check-updates
 npm install -g n
+npm install -g typescript
 
 # Install haskell
 curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
