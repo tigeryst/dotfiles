@@ -1,31 +1,33 @@
 {
   "workbench.colorTheme": "Sea Green Theme",
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
   "editor.formatOnSave": true,
   "editor.bracketPairColorization.enabled": true,
   "editor.guides.bracketPairs": "active",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "files.autoSave": "afterDelay",
+  "explorer.confirmDragAndDrop": false,
   "emmet.includeLanguages": {
     "ejs": "html",
     "javascript": "javascriptreact"
   },
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "workbench.iconTheme": "vscode-icons",
   "html.validate.scripts": false,
+  "eslint.workingDirectories": [{ "mode": "auto" }],
   "javascript.preferences.quoteStyle": "single",
-  "workbench.editorAssociations": {
-    "*.ipynb": "jupyter-notebook"
+  "javascript.updateImportsOnFileMove.enabled": "never",
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnType": true
   },
   "notebook.cellToolbarLocation": {
     "default": "right",
     "jupyter-notebook": "left"
   },
-  "[html]": {
-    "editor.defaultFormatter": "HookyQR.beautify"
-  },
   "latex-workshop.view.pdf.viewer": "tab",
   "[shellscript]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
-  },
-  "files.autoSave": "afterDelay",
-  "explorer.confirmDragAndDrop": false,
-  "javascript.updateImportsOnFileMove.enabled": "never"
+  }
 }
