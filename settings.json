@@ -29,5 +29,7 @@
   "latex-workshop.view.pdf.viewer": "tab",
   "[shellscript]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
-  }
+  },
+  "workbench.sideBar.location": "right",
+  "git.autofetch": true
 }
