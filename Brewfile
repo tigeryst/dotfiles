@@ -7,6 +7,7 @@ brew "pyenv"
 brew "mysql"
 brew "node"
 brew "mongodb-community"
+brew "openjdk"
 
 mas "CopyClip", id: 1020812363
 mas "GoodNotes", id: 1444383602
