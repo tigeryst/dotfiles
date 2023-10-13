@@ -1,0 +1,49 @@
+# Taps
+tap "homebrew/cask"
+tap "homebrew/services"
+tap "mongodb/brew"
+
+# Brew
+brew "cabal-install"
+brew "ghc"
+brew "heroku"
+brew "imagemagick"
+brew "mas"
+brew "mongodb-community"
+brew "mysql"
+brew "node"
+brew "openjdk"
+brew "pyenv"
+
+# Cask
+cask "anki"
+cask "dbeaver-community"
+cask "discord"
+cask "figma"
+cask "google-backup-and-sync"
+cask "google-chrome"
+cask "google-drive"
+cask "iterm2"
+cask "mactex-no-gui"
+cask "postman"
+cask "qlmarkdown"
+cask "quicklook-json"
+cask "spotify"
+cask "steam"
+cask "unity-hub"
+cask "visual-studio-code"
+cask "zoom"
+
+# Mac App Store
+mas "CopyClip", id: 1020812363
+mas "GoodNotes", id: 1444383602
+mas "Keynote", id: 409183694
+mas "LINE", id: 539883307
+mas "Messenger", id: 1480068668
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Shazam", id: 897118787
+mas "Telegram", id: 747648890
+mas "Twitter", id: 1482454543
+mas "WeChat", id: 836500024
+mas "WhatsApp", id: 1147396723
