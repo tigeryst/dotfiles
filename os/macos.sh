@@ -64,6 +64,8 @@ for other in \
   defaults write com.apple.dock persistent-others -array-add "$other_string"
 done
 
+# TODO: set up preferences
+
 # # Expand save panel by default
 # defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 # defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
