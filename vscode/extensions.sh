@@ -32,8 +32,6 @@ code --install-extension oouo-diogo-perdigao.docthis
 code --install-extension raashida.fixthecode-vs
 # vscode-icons
 code --install-extension vscode-icons-team.vscode-icons
-# Node.js Extension Pack
-code --install-extension waderyan.nodejs-extension-pack
 # Code GPT
 code --install-extension DanielSanMedium.dscodegpt
 # ESLint
