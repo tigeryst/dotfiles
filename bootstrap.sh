@@ -2,27 +2,21 @@
 
 echo "Setting up your Mac..."
 
-# if [ -f $HOME/.osx-bootstrapped.txt ]; then
-#   cat <<EOF
-# ~/.osx-bootstrapped.txt found!
-# This laptop has already been bootstrapped.
-# Exiting. No changes were made.
-# EOF
-#   exit 0
-# fi
-
 # Check if script is running as the main script and not being sourced
 if [ "$0" = "$BASH_SOURCE" ]; then
-    # Ask for the administrator password upfront
-    sudo -v
+  # Ask for the administrator password upfront
+  sudo -v
 
-    # Keep-alive: update existing sudo timestamp until script has finished
-    while true; do
-        sudo -n true
-        sleep 60
-        kill -0 "$$" || exit
-    done 2>/dev/null &
+  # Keep-alive: update existing sudo timestamp until script has finished
+  while true; do
+    sudo -n true
+    sleep 60
+    kill -0 "$$" || exit
+  done 2>/dev/null &
 fi
+
+echo -n "Connect to the internet then press enter to continue... "
+read check
 
 # Install Xcode
 if command -v xcode-select &>/dev/null; then
@@ -53,7 +47,7 @@ source brew/install.sh
 source vscode/extensions.sh
 
 echo "Setting up git..."
-echo -n "Ensure that you have your github credentials saved to your Keychain then press enter to continue... "
+echo -n "Ensure that you are connected to iCloud and have your GitHub credentials saved to your Keychain then press enter to continue... "
 read check
 rm -f $HOME/.gitconfig
 ln -s $HOME/.dotfiles/git/.gitconfig $HOME/.gitconfig
@@ -76,7 +70,8 @@ ln -s $HOME/.dotfiles/haskell/.ghci $HOME/.ghci
 
 source os/macos.sh
 
-# touch $HOME/.osx-bootstrapped.txt
+echo -n "Log in to your Google Drive then press enter to continue... "
+read check
 
 echo "Set up of your Mac is completed"
 echo 'Enjoy!'

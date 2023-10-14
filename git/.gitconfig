@@ -5,3 +5,9 @@
 	helper = osxkeychain
 [init]
 	defaultBranch = main
+# Large File Storage settings added by GitHub desktop
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
