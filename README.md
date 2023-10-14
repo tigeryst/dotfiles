@@ -24,15 +24,15 @@ If you find this useful, feel free to fork this repository and make it your own!
 
 ## The set up sequence
 
-These steps are automated with the [bootstrap](bootstrap.sh) script.
+These steps are automated with the [`bootstrap.sh`](bootstrap.sh) script.
 
 1. Install Xcode, Oh My Zsh and Homebrew.
 2. Install apps
 3. Install Visual Studio Code (VS Code) extensions
-4. Set up GitHub credentials in .gitconfig
+4. Set up GitHub credentials
 5. Clone active Git repositories
 6. Install iTerm2 plugins
-7. Symbolic link Zsh, VS Code and Haskell interpreter configuration files
+7. Symbolic link Z Shell (Zsh), VS Code and Haskell interpreter configuration files
 8. Restore macOS settings
 9. Prompt to log in and sync with Google Drive
 
@@ -44,21 +44,34 @@ The set up steps are spread across various files and can be tweaked as needed. K
 
 Apps should be managed through the Homebrew package manager.
 
-- To remove an app, run `brew uninstall app_name` then make sure to remove the app from the [brew/Brewfile](brew/Brewfile)
+- To remove an app, run `brew uninstall app_name` then make sure to remove the app from the [`brew/Brewfile`](brew/Brewfile)
 - To install a new app, check if the app to install is available from the [Homebrew directory](https://caskroom.github.io/search) and run 'brew install app_name' then make sure to add the app to the brew/Brewfile
 - If the app is not available on Homebrew but is instead available on the App Store, install it from the App Store and add it to the Brewfile under the [mas](https://github.com/mas-cli/mas) section
 
-<!-- TODO: update these seections -->
+The [`brew/install.sh`](brew/install.sh) script is also responsible for installing npm/python package and starting background services such as MySQL or MongoDB databases.
 
 ### VS Code
 
+Installation commands for the VS Code extensions is listed in the [`vscode/extensions.sh`](vscode/extensions.sh) script.
+
+- When installing a new extension, make sure to append `code --install-extension extension_id` to the script. Extension ID can be copied from the extensions tab on VS Code.
+- When uninstalling an extension, make sure to remove the corresponding command from the script.
+
+User settings for VS Code are symlinked to the [`vscode/settings.json`](vscode/settings.json) file so any settings changed from VS Code is automatically reflected in the file which is committed to this repo.
+
 ### macOS settings
+
+On a Mac, system settings are normally stored in Property List files (PLIST) in an XML key-value pair format. These settings can be read using `defaults read domain_name key` and overwritten with `defaults write domain_name key value`. Do an internet search to find the right command for the setting you are looking for.
+
+The [`os/macos.sh`](os/macos.sh) script contains such settings commands including region format, languages, menu bar, dock, keyboard and trackpad. Instead of updating settings through the System Settings UI, try to find the right command and add it to the script.
 
 ### Oh My Zsh
 
-Check out the [`aliases.zsh`](./aliases.zsh) file and add your own aliases. If you need to tweak your `$PATH` check out the [`path.zsh`](./path.zsh) file. These files get loaded in because the `$ZSH_CUSTOM` setting points to the `.dotfiles` directory. You can adjust the [`.zshrc`](./.zshrc) file to your liking to tweak your Oh My Zsh setup. More info about how to customize Oh My Zsh can be found [here](https://github.com/robbyrussell/oh-my-zsh/wiki/Customization).
+To configure how the Zsh looks and behaves, the theme, plugins and other settings can be configured in [`terminal/.zshrc`](terminal/.zshrc). Custom plugins are installed in [`terminal/install.sh`](terminal/install.sh).
 
-<!-- TODO: end -->
+To add shorthand for commands or aliases, check out [`terminal/aliases.zsh`](terminal/aliases.zsh). The `$PATH` variable is set in [`terminal/path.zsh`](terminal/path.zsh). These files get loaded in because the `$ZSH_CUSTOM` setting points to the [`terminal`](terminal) directory.
+
+More info about how to customize Oh My Zsh can be found [here](https://github.com/robbyrussell/oh-my-zsh/wiki/Customization).
 
 ## Acknowledgements
 
