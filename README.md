@@ -1,78 +1,65 @@
 ## Introduction
 
-<!-- TODO: update README -->
+This is the development environment set up for my MacBook. It contains configuration files (dotfiles) and scripts that will automatically restore my apps, IDE extensions and settings, GitHub credentials and system preferences whenever I need to set up a new MacBook.
 
-Credits to
+If you find this useful, feel free to fork this repository and make it your own!
 
-# ~/.macos — https://mths.be/macos
+## Setting up a new MacBook
 
-📖 - [Read the blog post](https://driesvints.com/blog/getting-started-with-dotfiles)
-https://gist.github.com/kamui545/c810eccf6281b33a53e094484247f5e8
+1. Connect to the internet
+1. Update macOS to the latest version
+1. Log in to iCloud and enable iCloud Keychain
+1. Log in to the App Store
+1. Log in to [GitHub](https://github.com) and ensure that the password is saved in iCloud Keychain
+1. Clone this repository into `~/.dotfiles`
+1. Run the bootstrap installation with `~/.dotfiles/bootstrap.sh`
+1. Restart the computer to ensure changes are applied
 
-### Before you re-install
+## Before restoring to factory settings
 
-First, go through the checklist below to make sure you didn't forget anything before you wipe your hard drive.
+1. Make sure that the dotfiles are up to date with the current set up
+1. Commit and push any changes to local repositories to GitHub
+1. Make a Time Machine backup
+1. Make sure all important files are uploaded to the cloud (Google Drive, iCloud, etc.)
 
-- Did you commit and push any changes/branches to your git repositories?
-- Did you remember to save all important documents from non-iCloud directories?
-- Did you save all of your work from apps which aren't synced through iCloud?
-- Did you remember to export important data from your local database?
+## The set up sequence
 
-### Setting up your Mac
+These steps are automated with the [bootstrap](bootstrap.sh) script.
 
-If you did all of the above you may now follow these install instructions to setup a new Mac.
+1. Install Xcode, Oh My Zsh and Homebrew.
+2. Install apps
+3. Install Visual Studio Code (VS Code) extensions
+4. Set up GitHub credentials in .gitconfig
+5. Clone active Git repositories
+6. Install iTerm2 plugins
+7. Symbolic link Zsh, VS Code and Haskell interpreter configuration files
+8. Restore macOS settings
+9. Prompt to log in and sync with Google Drive
 
-1. Update macOS to the latest version with the App Store
-2. [Generate a new public and private SSH key](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) by running:
+## Tweaking the set up
 
-   ```zsh
-   curl https://raw.githubusercontent.com/driesvints/dotfiles/HEAD/ssh.sh | sh -s "<your-email-address>"
-   ```
+The set up steps are spread across various files and can be tweaked as needed. Keeping the dotfiles up the date also requires constant maintenance and a little different approach to installing apps and editing settings.
 
-3. Clone this repo to `~/.dotfiles` with:
+### Apps
 
-   ```zsh
-   git clone git@github.com:driesvints/dotfiles.git ~/.dotfiles
-   ```
+Apps should be managed through the Homebrew package manager.
 
-4. Run the installation with:
+- To remove an app, run `brew uninstall app_name` then make sure to remove the app from the [brew/Brewfile](brew/Brewfile)
+- To install a new app, check if the app to install is available from the [Homebrew directory](https://caskroom.github.io/search) and run 'brew install app_name' then make sure to add the app to the brew/Brewfile
+- If the app is not available on Homebrew but is instead available on the App Store, install it from the App Store and add it to the Brewfile under the [mas](https://github.com/mas-cli/mas) section
 
-   ```zsh
-   ~/.dotfiles/fresh.sh
-   ```
+<!-- TODO: update these seections -->
 
-5. After mackup is synced with your cloud storage, restore preferences by running `mackup restore`
-6. Restart your computer to finalize the process
+### VS Code
 
-Your Mac is now ready to use!
+### macOS settings
 
-> 💡 You can use a different location than `~/.dotfiles` if you want. Make sure you also update the reference in the [`.zshrc`](./.zshrc#L2) file.
-
-## Your Own Dotfiles
-
-**Please note that the instructions below assume you already have set up Oh My Zsh so make sure to first [install Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh#getting-started) before you continue.**
-
-If you want to start with your own dotfiles from this setup, it's pretty easy to do so. First of all you'll need to fork this repo. After that you can tweak it the way you want.
-
-Go through the [`.macos`](./.macos) file and adjust the settings to your liking. You can find much more settings at [the original script by Mathias Bynens](https://github.com/mathiasbynens/dotfiles/blob/master/.macos) and [Kevin Suttle's macOS Defaults project](https://github.com/kevinSuttle/MacOS-Defaults).
-
-Check out the [`Brewfile`](./Brewfile) file and adjust the apps you want to install for your machine. Use [their search page](https://caskroom.github.io/search) to check if the app you want to install is available.
+### Oh My Zsh
 
 Check out the [`aliases.zsh`](./aliases.zsh) file and add your own aliases. If you need to tweak your `$PATH` check out the [`path.zsh`](./path.zsh) file. These files get loaded in because the `$ZSH_CUSTOM` setting points to the `.dotfiles` directory. You can adjust the [`.zshrc`](./.zshrc) file to your liking to tweak your Oh My Zsh setup. More info about how to customize Oh My Zsh can be found [here](https://github.com/robbyrussell/oh-my-zsh/wiki/Customization).
 
-When installing these dotfiles for the first time you'll need to backup all of your settings with Mackup. Install Mackup and backup your settings with the commands below. Your settings will be synced to iCloud so you can use them to sync between computers and reinstall them when reinstalling your Mac. If you want to save your settings to a different directory or different storage than iCloud, [checkout the documentation](https://github.com/lra/mackup/blob/master/doc/README.md#storage). Also make sure your `.zshrc` file is symlinked from your dotfiles repo to your home directory.
+<!-- TODO: end -->
 
-```zsh
-brew install mackup
-mackup backup
-```
+## Acknowledgements
 
-You can tweak the shell theme, the Oh My Zsh settings and much more. Go through the files in this repo and tweak everything to your liking.
-
-Enjoy your own Dotfiles!
-
-## Thanks To...
-
-I first got the idea for starting this project by visiting the [GitHub does dotfiles](https://dotfiles.github.io/) project. Both [Zach Holman](https://github.com/holman/dotfiles) and [Mathias Bynens](https://github.com/mathiasbynens/dotfiles) were great sources of inspiration. [Sourabh Bajaj](https://twitter.com/sb2nov/)'s [Mac OS X Setup Guide](http://sourabhbajaj.com/mac-setup/) proved to be invaluable. Thanks to [@subnixr](https://github.com/subnixr) for [his awesome Zsh theme](https://github.com/subnixr/minimal)! Thanks to [Caneco](https://twitter.com/caneco) for the header in this readme. And lastly, I'd like to thank [Emma Fabre](https://twitter.com/anahkiasen) for [her excellent presentation on Homebrew](https://speakerdeck.com/anahkiasen/a-storm-homebrewin) which made me migrate a lot to a [`Brewfile`](./Brewfile) and [Mackup](https://github.com/lra/mackup).
-
-In general, I'd like to thank every single one who open-sources their dotfiles for their effort to contribute something to the open-source community.
+I would like to thank [Sourabh Bajaj](https://sourabhbajaj.com/mac-setup/) for my current development set up, [Dries Vints](https://driesvints.com/blog/getting-started-with-dotfiles) for the comprehensive starter code for my dotfiles allowing me to automate everything, [Emmanuel Maggion](https://gist.github.com/kamui545/c810eccf6281b33a53e094484247f5e8) for the command line Dock set up and [Mathias Bynens](https://mths.be/macos) for the original script to modify the macOS defaults.
