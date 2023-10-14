@@ -2,9 +2,11 @@
 
 <!-- TODO: update README -->
 
+Credits to
 
-📖 - [Read the blog post](https://driesvints.com/blog/getting-started-with-dotfiles)  
+# ~/.macos — https://mths.be/macos
 
+📖 - [Read the blog post](https://driesvints.com/blog/getting-started-with-dotfiles)
 
 ### Before you re-install
 
@@ -14,7 +16,6 @@ First, go through the checklist below to make sure you didn't forget anything be
 - Did you remember to save all important documents from non-iCloud directories?
 - Did you save all of your work from apps which aren't synced through iCloud?
 - Did you remember to export important data from your local database?
-
 
 ### Setting up your Mac
 
