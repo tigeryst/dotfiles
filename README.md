@@ -11,7 +11,7 @@ If you find this useful, feel free to fork this repository and make it your own!
 1. Log in to iCloud and enable iCloud Keychain
 1. Log in to the App Store
 1. Log in to [GitHub](https://github.com) and ensure that the password is saved in iCloud Keychain
-1. Clone this repository into `~/.dotfiles`
+1. Clone this repository into the `~/.dotfiles` local directory
 1. Run the bootstrap installation with `~/.dotfiles/bootstrap.sh`
 1. Restart the computer to ensure changes are applied
 
