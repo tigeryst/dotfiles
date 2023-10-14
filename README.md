@@ -7,6 +7,7 @@ Credits to
 # ~/.macos — https://mths.be/macos
 
 📖 - [Read the blog post](https://driesvints.com/blog/getting-started-with-dotfiles)
+https://gist.github.com/kamui545/c810eccf6281b33a53e094484247f5e8
 
 ### Before you re-install
 

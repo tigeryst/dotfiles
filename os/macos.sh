@@ -158,7 +158,7 @@ for app in \
   "/Applications/Google Chrome" \
   "/Applications/iTerm" \
   "/Applications/Visual Studio Code" \
-  "/Applications/Postman" \
+  "/Applications/GitHub Desktop" \
   "/System/Applications/App Store"; do
   app_string="
   <dict>
@@ -240,9 +240,6 @@ defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 # Disable the warning before emptying the Trash
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
-# Show the ~/Library folder
-chflags nohidden ~/Library && xattr -d com.apple.FinderInfo ~/Library
-
 ###############################################################################
 # Terminal & iTerm 2                                                          #
 ###############################################################################
@@ -252,18 +249,6 @@ defaults write com.apple.terminal StringEncodings -array 4
 
 # Don’t display the annoying prompt when quitting iTerm
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
-
-###############################################################################
-# Safari & WebKit                                                             #
-###############################################################################
-
-# Show the full URL in the address bar (note: this still hides the scheme)
-defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
-
-# Enable the Develop menu and the Web Inspector in Safari
-defaults write com.apple.Safari IncludeDevelopMenu -bool true
-defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
 
 ###############################################################################
 # Time Machine                                                                #
@@ -296,7 +281,6 @@ for app in \
   "SytemUIServer" \
   "Dock" \
   "Finder" \
-  "Safari" \
   "Photos" \
   "Google Chrome"; do
   killall "${app}" &>/dev/null
