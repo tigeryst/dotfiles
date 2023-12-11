@@ -25,8 +25,3 @@ brew cleanup
 echo "Starting database servers..."
 brew services start mysql
 brew services start mongodb-community
-
-echo "Intalling global npm packages..."
-npm install -g npm-check-updates
-npm install -g n
-npm install -g typescript

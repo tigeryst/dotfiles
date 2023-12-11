@@ -48,7 +48,7 @@ Apps should be managed through the Homebrew package manager.
 - To install a new app, check if the app to install is available from the [Homebrew directory](https://caskroom.github.io/search) and run 'brew install app_name' then make sure to add the app to the brew/Brewfile
 - If the app is not available on Homebrew but is instead available on the App Store, install it from the App Store and add it to the Brewfile under the [mas](https://github.com/mas-cli/mas) section
 
-The [`brew/install.sh`](brew/install.sh) script is also responsible for installing npm/python package and starting background services such as MySQL or MongoDB databases.
+The [`brew/install.sh`](brew/install.sh) script executes the Bew installations and starts background services such as MySQL or MongoDB databases.
 
 ### VS Code
 

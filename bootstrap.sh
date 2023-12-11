@@ -68,6 +68,9 @@ ln -s $HOME/.dotfiles/vscode/settings.json $HOME/Library/Application\ Support/Co
 rm -f $HOME/.ghci
 ln -s $HOME/.dotfiles/haskell/.ghci $HOME/.ghci
 
+source javascript/install.sh
+source python/install.sh
+
 source os/macos.sh
 
 echo -n "Log in to your Google Drive then press enter to continue... "
