@@ -1,12 +1,10 @@
 # Taps
-tap "homebrew/cask"
 tap "homebrew/services"
 tap "mongodb/brew"
 
 # Brew
 brew "cabal-install"
 brew "ghc"
-brew "heroku"
 brew "imagemagick"
 brew "mas"
 brew "mongodb-community"
