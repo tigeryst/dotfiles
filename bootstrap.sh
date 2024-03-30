@@ -70,6 +70,7 @@ ln -s $HOME/.dotfiles/haskell/.ghci $HOME/.ghci
 
 source javascript/install.sh
 source python/install.sh
+source rust/install.sh
 
 source os/macos.sh
 

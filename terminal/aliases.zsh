@@ -5,7 +5,7 @@ alias relaunch="defaults write com.apple.dock ResetLaunchPad -bool true; killall
 alias mkcd='mkdir -p "$1" && cd "$1"'
 
 # Change directories
-alias dotfiles="cd $DOTFILES"
+alias dotfiles="cd $DOTFILES && code ."
 alias library="cd $HOME/Library"
 alias desktop="cd $HOME/Desktop"
 alias projects="cd $HOME/Projects"
