@@ -20,20 +20,18 @@ code --install-extension jbockle.jbockle-format-files
 code --install-extension justusadam.language-haskell
 # JSON to CSV
 code --install-extension khaeransori.json2csv
+# Rainbow CSV
+code --install-extension mechatroner.rainbow-csv
 # DotENV
 code --install-extension mikestead.dotenv
 # Black Formatter
 code --install-extension ms-python.black-formatter
 # Python
 code --install-extension ms-python.python
-# Document This
-code --install-extension oouo-diogo-perdigao.docthis
 # Sea Green Theme
 code --install-extension raashida.fixthecode-vs
 # vscode-icons
 code --install-extension vscode-icons-team.vscode-icons
-# Code GPT
-code --install-extension DanielSanMedium.dscodegpt
 # ESLint
 code --install-extension dbaeumer.vscode-eslint
 # GitHub Copilot
