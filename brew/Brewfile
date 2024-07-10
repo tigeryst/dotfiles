@@ -20,7 +20,6 @@ cask "dbeaver-community"
 cask "discord"
 cask "figma"
 cask "github"
-cask "google-backup-and-sync"
 cask "google-chrome"
 cask "google-drive"
 cask "iterm2"
@@ -33,6 +32,7 @@ cask "steam"
 cask "unity-hub"
 cask "visual-studio-code"
 cask "zoom"
+cask "calibre"
 
 # Mac App Store
 mas "CopyClip", id: 1020812363
@@ -46,3 +46,4 @@ mas "Shazam", id: 897118787
 mas "Telegram", id: 747648890
 mas "WeChat", id: 836500024
 mas "WhatsApp", id: 1147396723
+mas "Slack", id: 803453959
