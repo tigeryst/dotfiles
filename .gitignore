@@ -1,2 +1,3 @@
 plugins/
 .DS_STORE
+Brewfile.lock.json

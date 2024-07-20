@@ -33,6 +33,7 @@ cask "unity-hub"
 cask "visual-studio-code"
 cask "zoom"
 cask "calibre"
+cask "osirix-quicklook"
 
 # Mac App Store
 mas "CopyClip", id: 1020812363
