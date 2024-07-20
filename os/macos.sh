@@ -117,12 +117,6 @@ defaults write com.apple.menuextra.clock DateFormat -string "EEE d MMM HH:mm:ss"
 defaults write com.apple.menuextra.clock Show24Hour -int 1
 defaults write com.apple.menuextra.clock ShowSeconds -int 1
 
-# Show Time Machine in menu bar
-defaults write com.apple.systemuiserver menuExtras -array-add "/System/Library/CoreServices/Menu Extras/TimeMachine.menu"
-
-# Show Bluetooth in menu bar
-defaults write com.apple.systemuiserver menuExtras -array-add "/System/Library/CoreServices/Menu Extras/Bluetooth.menu"
-
 ###############################################################################
 # Dock                                                                        #
 ###############################################################################
@@ -278,7 +272,7 @@ defaults write com.google.Chrome.canary PMPrintingExpandedStateForPrint2 -bool t
 
 # SystemUIServer is responsible for the clock, notifications and menu bar
 for app in \
-  "SytemUIServer" \
+  "SystemUIServer" \
   "Dock" \
   "Finder" \
   "Photos" \
