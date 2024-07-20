@@ -2,4 +2,4 @@
 
 echo "Intalling the rust compiler..."
 
-rustup-init
+rustup-init -y
