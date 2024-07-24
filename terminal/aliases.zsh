@@ -6,6 +6,9 @@ mkcd() {
     mkdir -p "$1" && cd "$1"
 }
 
+# Packages
+alias aupdate="brew update && brew upgrade && brew cleanup && mas upgrade"
+
 # Change directories
 alias dotfiles="cd $DOTFILES && code ."
 
