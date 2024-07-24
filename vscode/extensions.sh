@@ -40,3 +40,5 @@ code --install-extension GitHub.copilot
 code --install-extension GitHub.copilot-chat
 # JavaScript (ES6) code snippets
 code --install-extension xabikos.JavaScriptSnippets
+# Live Server
+code --install-extension ritwickdey.LiveServer
