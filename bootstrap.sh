@@ -43,8 +43,8 @@ else
   brew update
 fi
 
-source brew/install.sh
-source vscode/extensions.sh
+source $HOME/.dotfiles/brew/install.sh
+source $HOME/.dotfiles/vscode/extensions.sh
 
 echo "Setting up git..."
 echo -n "Ensure that you are connected to iCloud and have your GitHub credentials saved to your Keychain then press enter to continue... "
@@ -52,8 +52,8 @@ read check
 rm -f $HOME/.gitconfig
 ln -s $HOME/.dotfiles/git/.gitconfig $HOME/.gitconfig
 
-source git/clone.sh
-source terminal/install.sh
+source $HOME/.dotfiles/git/clone.sh
+source $HOME/.dotfiles/terminal/install.sh
 
 echo "Creating symbolic links..."
 # Symlink the .zshrc file
@@ -68,11 +68,11 @@ ln -s $HOME/.dotfiles/vscode/settings.json $HOME/Library/Application\ Support/Co
 rm -f $HOME/.ghci
 ln -s $HOME/.dotfiles/haskell/.ghci $HOME/.ghci
 
-source javascript/install.sh
-source python/install.sh
-source rust/install.sh
+source $HOME/.dotfiles/javascript/install.sh
+source $HOME/.dotfiles/python/install.sh
+source $HOME/.dotfiles/rust/install.sh
 
-source os/macos.sh
+source $HOME/.dotfiles/os/macos.sh
 
 echo -n "Log in to your Google Drive then press enter to continue... "
 read check
