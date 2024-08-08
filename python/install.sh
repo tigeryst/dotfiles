@@ -9,4 +9,4 @@ pyenv rehash
 pip install --upgrade pip
 pip install --upgrade setuptools
 
-pip install pipenv
+pip install virtualenv
