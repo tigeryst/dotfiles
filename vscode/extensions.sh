@@ -42,3 +42,5 @@ code --install-extension GitHub.copilot-chat
 code --install-extension xabikos.JavaScriptSnippets
 # Live Server
 code --install-extension ritwickdey.LiveServer
+# Jupyter
+code --install-extension ms-toolsai.jupyter
