@@ -2,8 +2,8 @@
 
 # Better Comments
 code --install-extension aaron-bond.better-comments
-# Simple React Snippets
-code --install-extension burkeholland.simple-react-snippets
+# React Snippets
+code --install-extension dsznajder.es7-react-js-snippets
 # EJS language support
 code --install-extension digitalbrainstem.javascript-ejs-support
 # Prettier
