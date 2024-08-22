@@ -4,8 +4,6 @@
 code --install-extension aaron-bond.better-comments
 # React Snippets
 code --install-extension dsznajder.es7-react-js-snippets
-# EJS language support
-code --install-extension digitalbrainstem.javascript-ejs-support
 # Prettier
 code --install-extension esbenp.prettier-vscode
 # Shell-Format
@@ -44,3 +42,7 @@ code --install-extension xabikos.JavaScriptSnippets
 code --install-extension ritwickdey.LiveServer
 # Jupyter
 code --install-extension ms-toolsai.jupyter
+# Docker
+code --install-extension ms-azuretools.vscode-docker
+# Dev Containers
+code --install-extension ms-vscode-remote.remote-containers
