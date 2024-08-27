@@ -13,6 +13,7 @@ brew "node"
 brew "openjdk"
 brew "pyenv"
 brew "rustup"
+brew "git"
 
 # Cask
 cask "anki"
