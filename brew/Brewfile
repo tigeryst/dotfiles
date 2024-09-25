@@ -1,14 +1,11 @@
 # Taps
 tap "homebrew/services"
-tap "mongodb/brew"
 
 # Brew
 brew "cabal-install"
 brew "ghc"
 brew "imagemagick"
 brew "mas"
-brew "mongodb-community"
-brew "mysql"
 brew "node"
 brew "openjdk"
 brew "pyenv"
@@ -26,7 +23,6 @@ cask "google-drive"
 cask "iterm2"
 cask "mactex-no-gui"
 cask "postman"
-cask "qlmarkdown"
 cask "quicklook-json"
 cask "spotify"
 cask "steam"
@@ -35,6 +31,7 @@ cask "visual-studio-code"
 cask "zoom"
 cask "calibre"
 cask "docker"
+cask "thinlinc-client" # ThinLinc for UCL remote desktop
 
 # Mac App Store
 mas "CopyClip", id: 1020812363
