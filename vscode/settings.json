@@ -1,5 +1,4 @@
 {
-  "workbench.colorTheme": "Sea Green Theme",
   "workbench.iconTheme": "vscode-icons",
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook"
@@ -39,5 +38,10 @@
     "editor.defaultFormatter": "ms-azuretools.vscode-docker"
   },
   "github.copilot.editor.enableAutoCompletions": true,
-  "git.confirmSync": false
+  "git.confirmSync": false,
+  "jupyter.interactiveWindow.textEditor.autoAddNewCell": false,
+  "jupyter.interactiveWindow.creationMode": "perFile",
+  "jupyter.interactiveWindow.textEditor.executeSelection": true,
+  "interactiveWindow.collapseCellInputCode": "never",
+  "workbench.colorTheme": "Sea Green Theme"
 }
