@@ -44,5 +44,10 @@
   "jupyter.interactiveWindow.textEditor.executeSelection": true,
   "interactiveWindow.collapseCellInputCode": "never",
   "workbench.colorTheme": "Sea Green Theme",
-  "latex-workshop.latex.autoClean.run": "onBuilt"
+  "latex-workshop.latex.autoClean.run": "onBuilt",
+  "latex-workshop.formatting.latex": "latexindent",
+  "[latex]": {
+    "editor.defaultFormatter": "James-Yu.latex-workshop"
+  },
+  "cSpell.language": "en-GB"
 }
