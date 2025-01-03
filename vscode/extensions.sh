@@ -46,3 +46,5 @@ code --install-extension ms-toolsai.jupyter
 code --install-extension ms-azuretools.vscode-docker
 # Dev Containers
 code --install-extension ms-vscode-remote.remote-containers
+# Code Spell Checker
+code --install-extension streetsidesoftware.code-spell-checker
