@@ -49,5 +49,8 @@
   "[latex]": {
     "editor.defaultFormatter": "James-Yu.latex-workshop"
   },
-  "cSpell.language": "en-GB"
+  "cSpell.language": "en-GB",
+  "files.associations": {
+    "*.gs": "javascript"
+  }
 }
