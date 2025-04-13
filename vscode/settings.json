@@ -25,32 +25,59 @@
     "default": "right",
     "jupyter-notebook": "left"
   },
+  "notebook.defaultFormatter": "ms-python.black-formatter",
+  "notebook.formatOnSave.enabled": true,
+  "jupyter.interactiveWindow.textEditor.autoAddNewCell": false,
+  "jupyter.interactiveWindow.creationMode": "perFile",
+  "jupyter.interactiveWindow.textEditor.executeSelection": true,
   "latex-workshop.view.pdf.viewer": "tab",
   "[shellscript]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
   "workbench.sideBar.location": "right",
   "git.autofetch": true,
-  "[rust]": {
-    "editor.defaultFormatter": "rust-lang.rust-analyzer"
-  },
   "[dockerfile]": {
     "editor.defaultFormatter": "ms-azuretools.vscode-docker"
   },
-  "github.copilot.editor.enableAutoCompletions": true,
   "git.confirmSync": false,
-  "jupyter.interactiveWindow.textEditor.autoAddNewCell": false,
-  "jupyter.interactiveWindow.creationMode": "perFile",
-  "jupyter.interactiveWindow.textEditor.executeSelection": true,
-  "interactiveWindow.collapseCellInputCode": "never",
   "workbench.colorTheme": "Sea Green Theme",
   "latex-workshop.latex.autoClean.run": "onBuilt",
   "latex-workshop.formatting.latex": "latexindent",
   "[latex]": {
     "editor.defaultFormatter": "James-Yu.latex-workshop"
   },
-  "cSpell.language": "en-GB",
+  "cSpell.language": "en-US",
   "files.associations": {
     "*.gs": "javascript"
-  }
+  },
+  "editor.renderWhitespace": "all",
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": "support.type.property-name",
+        "settings": {
+          "foreground": "#62c1d4"
+        }
+      },
+      {
+        "scope": "support.type.property-name.table",
+        "settings": {
+          "foreground": "#4EC9B0"
+        }
+      },
+      {
+        "scope": "support.type.property-name.array",
+        "settings": {
+          "foreground": "#569CD6"
+        }
+      },
+      {
+        "scope": "constant.other.time",
+        "settings": {
+          "foreground": "#DCDCAA"
+        }
+      }
+    ]
+  },
+  "github.copilot.selectedCompletionModel": ""
 }
