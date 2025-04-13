@@ -48,3 +48,9 @@ code --install-extension ms-azuretools.vscode-docker
 code --install-extension ms-vscode-remote.remote-containers
 # Code Spell Checker
 code --install-extension streetsidesoftware.code-spell-checker
+# TOML support
+code --install-extension tamasfe.even-better-toml
+# Git Blame
+code --install-extension waderyan.gitblame
+# Markdownlint
+code --install-extension DavidAnson.vscode-markdownlint
