@@ -11,6 +11,7 @@ brew "openjdk"
 brew "pyenv"
 brew "rustup"
 brew "git"
+brew "ffmpeg" # convert video formats, frames to video, record, and stream
 
 # Cask
 cask "anki"
