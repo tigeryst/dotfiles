@@ -10,3 +10,6 @@ pip install --upgrade pip
 pip install --upgrade setuptools
 
 pip install virtualenv
+
+conda init zsh
+conda config -- set auto_activate false

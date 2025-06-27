@@ -33,6 +33,7 @@ cask "zoom"
 cask "calibre"
 cask "docker"
 cask "thinlinc-client" # ThinLinc for UCL remote desktop
+cask "miniconda"
 
 # Mac App Store
 mas "CopyClip", id: 1020812363
