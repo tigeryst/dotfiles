@@ -79,5 +79,6 @@
       }
     ]
   },
-  "github.copilot.selectedCompletionModel": ""
+  "github.copilot.selectedCompletionModel": "",
+  "editor.wordWrap": "on"
 }
