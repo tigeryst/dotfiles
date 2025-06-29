@@ -58,3 +58,49 @@ tstart() {
         tmux new -s "$name"
     fi
 }
+
+# ---------------------
+# Remote
+# ---------------------
+
+sync_remote_dir() {
+    if [ "$#" -ne 4 ]; then
+        echo "Usage: syncdir push|pull user@remote /source/path/ /destination/path/"
+        return 1
+    fi
+
+    MODE="$1"
+    REMOTE="$2"
+    SOURCE="$3"
+    DEST="$4"
+
+    if [ "$MODE" = "push" ]; then
+        echo "Checking destination on remote..."
+        if ssh "$REMOTE" "[ -d \"$DEST\" ]"; then
+            echo "Destination exists. Using rsync to push changes..."
+            rsync -avz --delete "$SOURCE" "$REMOTE:\"$DEST\""
+        else
+            echo "Destination does not exist. Doing initial tar push..."
+            ssh "$REMOTE" "mkdir -p \"$DEST\""
+            # Archive the contents of the source folder, not the folder itself:
+            tar czf - -C "$SOURCE" . |
+                ssh "$REMOTE" "tar xzf - -C \"$DEST\""
+        fi
+
+    elif [ "$MODE" = "pull" ]; then
+        echo "Checking destination locally..."
+        if [ -d "$DEST" ]; then
+            echo "Destination exists. Using rsync to pull changes..."
+            rsync -avz --delete "$REMOTE:\"$SOURCE\"" "$DEST"
+        else
+            echo "Destination does not exist. Doing initial tar pull..."
+            mkdir -p "$DEST"
+            ssh "$REMOTE" "tar czf - -C \"$SOURCE\" ." |
+                tar xzf - -C "$DEST"
+        fi
+
+    else
+        echo "Invalid mode: use push or pull"
+        return 1
+    fi
+}
