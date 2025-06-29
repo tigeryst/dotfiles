@@ -13,6 +13,7 @@ brew "rustup"
 brew "git"
 brew "ffmpeg" # convert video formats, frames to video, record, and stream
 brew "tmux" # terminal multiplexer
+brew "wget" # allow non-GUI file download from the web
 
 # Cask
 cask "anki"
