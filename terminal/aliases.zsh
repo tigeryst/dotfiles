@@ -74,6 +74,9 @@ sync_remote_dir() {
     SOURCE="$3"
     DEST="$4"
 
+    # Force SOURCE to end with trailing slash
+    [[ "${SOURCE}" != */ ]] && SOURCE="${SOURCE}/"
+
     if [ "$MODE" = "push" ]; then
         echo "Checking destination on remote..."
         if ssh "$REMOTE" "[ -d \"$DEST\" ]"; then
