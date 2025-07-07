@@ -54,3 +54,5 @@ code --install-extension tamasfe.even-better-toml
 code --install-extension waderyan.gitblame
 # Markdownlint
 code --install-extension DavidAnson.vscode-markdownlint
+# Tailwind CSS IntelliSense
+code --install-extension bradlc.vscode-tailwindcss

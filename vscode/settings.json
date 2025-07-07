@@ -48,7 +48,8 @@
   },
   "cSpell.language": "en-US",
   "files.associations": {
-    "*.gs": "javascript"
+    "*.gs": "javascript",
+    "*.css": "tailwindcss"
   },
   "editor.renderWhitespace": "all",
   "editor.tokenColorCustomizations": {
