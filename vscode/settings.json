@@ -1,57 +1,17 @@
 {
+  // General settings
   "workbench.iconTheme": "vscode-icons",
+  "workbench.colorTheme": "Sea Green Theme",
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook"
   },
+  "workbench.sideBar.location": "right",
   "editor.formatOnSave": true,
   "editor.bracketPairColorization.enabled": true,
   "editor.guides.bracketPairs": "active",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "files.autoSave": "afterDelay",
-  "explorer.confirmDragAndDrop": false,
-  "emmet.includeLanguages": {
-    "ejs": "html",
-    "javascript": "javascriptreact"
-  },
-  "html.validate.scripts": false,
-  "eslint.workingDirectories": [{ "mode": "auto" }],
-  "javascript.preferences.quoteStyle": "single",
-  "javascript.updateImportsOnFileMove.enabled": "never",
-  "[python]": {
-    "editor.defaultFormatter": "ms-python.black-formatter",
-    "editor.formatOnSave": true
-  },
-  "notebook.cellToolbarLocation": {
-    "default": "right",
-    "jupyter-notebook": "left"
-  },
-  "notebook.defaultFormatter": "ms-python.black-formatter",
-  "notebook.formatOnSave.enabled": true,
-  "jupyter.interactiveWindow.textEditor.autoAddNewCell": false,
-  "jupyter.interactiveWindow.creationMode": "perFile",
-  "jupyter.interactiveWindow.textEditor.executeSelection": true,
-  "latex-workshop.view.pdf.viewer": "tab",
-  "[shellscript]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
-  },
-  "workbench.sideBar.location": "right",
-  "git.autofetch": true,
-  "[dockerfile]": {
-    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
-  },
-  "git.confirmSync": false,
-  "workbench.colorTheme": "Sea Green Theme",
-  "latex-workshop.latex.autoClean.run": "onBuilt",
-  "latex-workshop.formatting.latex": "latexindent",
-  "[latex]": {
-    "editor.defaultFormatter": "James-Yu.latex-workshop"
-  },
-  "cSpell.language": "en-US",
-  "files.associations": {
-    "*.gs": "javascript",
-    "*.css": "tailwindcss"
-  },
   "editor.renderWhitespace": "all",
+  "editor.wordWrap": "on",
   "editor.tokenColorCustomizations": {
     "textMateRules": [
       {
@@ -80,6 +40,56 @@
       }
     ]
   },
+  "files.autoSave": "afterDelay",
+  "explorer.confirmDragAndDrop": false,
+  // Web development settings
+  "emmet.includeLanguages": {
+    "ejs": "html",
+    "javascript": "javascriptreact"
+  },
+  "html.validate.scripts": false,
+  "eslint.workingDirectories": [{ "mode": "auto" }],
+  "javascript.preferences.quoteStyle": "single",
+  "javascript.updateImportsOnFileMove.enabled": "never",
+  // Python settings
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true
+  },
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+  "notebook.defaultFormatter": "ms-python.black-formatter",
+  "notebook.formatOnSave.enabled": true,
+  "jupyter.interactiveWindow.textEditor.autoAddNewCell": false,
+  "jupyter.interactiveWindow.creationMode": "perFile",
+  "jupyter.interactiveWindow.textEditor.executeSelection": true,
+  // LaTeX settings
+  "latex-workshop.view.pdf.viewer": "tab",
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "latex-workshop.latex.autoClean.run": "onBuilt",
+  "latex-workshop.formatting.latex": "latexindent",
+  "[latex]": {
+    "editor.defaultFormatter": "James-Yu.latex-workshop"
+  },
+  // Git settings
+  "git.autofetch": true,
+  "git.confirmSync": false,
+
+  // Docker settings
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  },
+  // Copilot settings
   "github.copilot.selectedCompletionModel": "",
-  "editor.wordWrap": "on"
+  // Spell checking settings
+  "cSpell.language": "en-US",
+  // File associations
+  "files.associations": {
+    "*.gs": "javascript",
+    "*.css": "tailwindcss"
+  }
 }
