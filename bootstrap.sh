@@ -28,7 +28,7 @@ else
 fi
 
 # Install Oh My Zsh
-if [ -d $HOME/.oh-my-zsh ]; then
+if [ -d "$HOME/.oh-my-zsh" ]; then
   echo "Oh My Zsh is already installed"
 else
   echo "Installing Oh My Zsh"
@@ -51,16 +51,16 @@ source "$HOME/.dotfiles/cursor/extensions.sh"
 echo "Setting up git..."
 echo -n "Ensure that you are connected to iCloud and have your GitHub credentials saved to your Keychain then press enter to continue... "
 read check
-rm -f $HOME/.gitconfig
-ln -s $HOME/.dotfiles/git/.gitconfig $HOME/.gitconfig
+rm -f "$HOME/.gitconfig"
+ln -s "$HOME/.dotfiles/git/.gitconfig" "$HOME/.gitconfig"
 
-source $HOME/.dotfiles/git/clone.sh
-source $HOME/.dotfiles/terminal/install.sh
+source "$HOME/.dotfiles/git/clone.sh"
+source "$HOME/.dotfiles/terminal/install.sh"
 
 echo "Creating symbolic links..."
 # Symlink the .zshrc file
-rm -f $HOME/.zshrc
-ln -s $HOME/.dotfiles/terminal/.zshrc $HOME/.zshrc
+rm -f "$HOME/.zshrc"
+ln -s "$HOME/.dotfiles/terminal/.zshrc" "$HOME/.zshrc"
 
 # Symlink VS Code settings
 rm -f "$HOME/Library/Application Support/Code/User/settings.json"
@@ -77,15 +77,15 @@ rm -f "$HOME/.tmux.conf"
 ln -s "$HOME/.dotfiles/tmux/.tmux.conf" "$HOME/.tmux.conf"
 
 # Symlink the .ghci file for haskell
-rm -f $HOME/.ghci
-ln -s $HOME/.dotfiles/haskell/.ghci $HOME/.ghci
+rm -f "$HOME/.ghci"
+ln -s "$HOME/.dotfiles/haskell/.ghci" "$HOME/.ghci"
 
 source "$HOME/.dotfiles/tmux/install.sh"
 source "$HOME/.dotfiles/javascript/install.sh"
 source "$HOME/.dotfiles/python/install.sh"
 source "$HOME/.dotfiles/rust/install.sh"
 
-source $HOME/.dotfiles/os/macos.sh
+source "$HOME/.dotfiles/os/macos.sh"
 
 echo -n "Log in to your Google Drive then press enter to continue... "
 read check

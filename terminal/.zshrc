@@ -1,8 +1,8 @@
 # Path to dotfiles.
-export DOTFILES=$HOME/.dotfiles
+export DOTFILES="$HOME/.dotfiles"
 
 # Path to oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set default text editor
 export EDITOR='code -w'
@@ -34,7 +34,7 @@ ENABLE_CORRECTION="true"
 DISABLE_UPDATE_PROMPT="true"
 
 # Custom folder other than $ZSH/custom?
-ZSH_CUSTOM=$DOTFILES/terminal
+ZSH_CUSTOM="$DOTFILES/terminal"
 
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -54,7 +54,7 @@ plugins=(
 
 eval "$(pyenv init -)"
 
-source $ZSH/oh-my-zsh.sh
+source "$ZSH/oh-my-zsh.sh"
 
 PATH="/Users/tiger/perl5/bin${PATH:+:${PATH}}"
 export PATH
