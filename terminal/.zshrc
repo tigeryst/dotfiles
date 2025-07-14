@@ -7,6 +7,9 @@ export ZSH=$HOME/.oh-my-zsh
 # Set default text editor
 export EDITOR='code -w'
 
+# Ensure 256 color support
+export TERM=xterm-256color
+
 export JAVA_HOME="/usr/local/opt/openjdk/bin/java"
 
 # Set name of the theme to load --- if set to "random", it will
