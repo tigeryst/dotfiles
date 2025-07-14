@@ -1,3 +1,4 @@
-plugins/
 .DS_STORE
+.ipynb_checkpoints/
 Brewfile.lock.json
+plugins/
