@@ -72,14 +72,18 @@ ln -s "$HOME/.dotfiles/vscode/settings.json" "$HOME/Library/Application Support/
 rm -f "$HOME/Library/Application Support/Cursor/User/settings.json"
 ln -s "$HOME/.dotfiles/cursor/settings.json" "$HOME/Library/Application Support/Cursor/User/settings.json"
 
+# Symlink tmux settings
+rm -f "$HOME/.tmux.conf"
+ln -s "$HOME/.dotfiles/tmux/.tmux.conf" "$HOME/.tmux.conf"
 
 # Symlink the .ghci file for haskell
 rm -f $HOME/.ghci
 ln -s $HOME/.dotfiles/haskell/.ghci $HOME/.ghci
 
-source $HOME/.dotfiles/javascript/install.sh
-source $HOME/.dotfiles/python/install.sh
-source $HOME/.dotfiles/rust/install.sh
+source "$HOME/.dotfiles/tmux/install.sh"
+source "$HOME/.dotfiles/javascript/install.sh"
+source "$HOME/.dotfiles/python/install.sh"
+source "$HOME/.dotfiles/rust/install.sh"
 
 source $HOME/.dotfiles/os/macos.sh
 
