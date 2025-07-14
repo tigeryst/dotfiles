@@ -87,7 +87,8 @@
   // File associations
   "files.associations": {
     "*.gs": "javascript",
-    "*.css": "tailwindcss"
+    "*.css": "tailwindcss",
+    "*.tmux.conf": "shellscript"
   },
   "editor.minimap.enabled": true
 }
