@@ -44,8 +44,9 @@ else
   brew update
 fi
 
-source $HOME/.dotfiles/brew/install.sh
-source $HOME/.dotfiles/vscode/extensions.sh
+source "$HOME/.dotfiles/brew/install.sh"
+source "$HOME/.dotfiles/vscode/extensions.sh" # TODO: remove if cursor turns out to be better
+source "$HOME/.dotfiles/cursor/extensions.sh"
 
 echo "Setting up git..."
 echo -n "Ensure that you are connected to iCloud and have your GitHub credentials saved to your Keychain then press enter to continue... "
@@ -62,8 +63,15 @@ rm -f $HOME/.zshrc
 ln -s $HOME/.dotfiles/terminal/.zshrc $HOME/.zshrc
 
 # Symlink VS Code settings
-rm -f $HOME/Library/Application\ Support/Code/User/settings.json
-ln -s $HOME/.dotfiles/vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
+rm -f "$HOME/Library/Application Support/Code/User/settings.json"
+ln -s "$HOME/.dotfiles/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
+# TODO: remove if cursor turns out to be better
+# TODO: also remove the ./vscode folder to avoid redundancy
+
+# Symlink Cursor settings
+rm -f "$HOME/Library/Application Support/Cursor/User/settings.json"
+ln -s "$HOME/.dotfiles/cursor/settings.json" "$HOME/Library/Application Support/Cursor/User/settings.json"
+
 
 # Symlink the .ghci file for haskell
 rm -f $HOME/.ghci
