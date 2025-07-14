@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+set -eu
+
+echo "Installing terminal plugins..."
 
 if [ -d $HOME/.dotfiles/terminal/plugins/zsh-syntax-highlighting ]; then
     echo "zsh-syntax-highlighting is already installed"

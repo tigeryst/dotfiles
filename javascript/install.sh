@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -eu
 
 echo "Intalling global npm packages..."
 npm install -g npm-check-updates

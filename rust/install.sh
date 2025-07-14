@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
+set -eu
 
-echo "Intalling the rust compiler..."
+echo "Installing the rust compiler..."
 
 rustup-init -y

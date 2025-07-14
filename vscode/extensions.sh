@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+set -eu
+
+echo "Installing VS Code extensions..."
 
 # Better Comments
 code --install-extension aaron-bond.better-comments

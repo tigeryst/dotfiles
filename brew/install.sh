@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+set -eu
+
+echo "Installing applications..."
 
 # Check if script is running as the main script and not being sourced
 if [ "$0" = "$BASH_SOURCE" ]; then
