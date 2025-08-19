@@ -13,4 +13,6 @@ pip install --upgrade setuptools
 pip install virtualenv
 
 conda init zsh
-conda config -- set auto_activate false
+conda config --set auto_activate_base false
+
+mamba shell init --shell zsh

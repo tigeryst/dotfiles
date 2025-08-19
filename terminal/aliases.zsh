@@ -92,6 +92,7 @@ alias mk_env='function _mk_env() {
   local py_version
   local file_path
 
+  # Get environment name
   if [ -z "$env_name" ]; then
     read "env_name?Enter the name of the environment: "
     if [ -z "$env_name" ]; then
@@ -100,53 +101,74 @@ alias mk_env='function _mk_env() {
     fi
   fi
 
-  read "env_type?Enter the type of environment (conda, virtualenv): "
+  # Ask which type of environment to create
+  read "env_type?Enter the type of environment (mamba, conda, virtualenv): "
 
-  if [ "$env_type" = "conda" ]; then
+  # Conda or mamba
+  if [ "$env_type" = "conda" ] || [ "$env_type" = "mamba" ]; then
+    local tool="$env_type"  # tool = conda or mamba
+
+    # Choose Python version
     read "py_version?Enter Python version (e.g. 3.8, 3.10): "
+
+    # Optional: path to environment.yml or requirements.txt
     read "file_path?Optional: Path to environment.yml or requirements.txt (leave blank if none): "
 
     if [[ "$file_path" == *environment.yml || "$file_path" == *environment.yaml ]]; then
-      conda env create -n "$env_name" -f "$file_path"
+      # If environment.yml provided, create environment from it
+      $tool env create -n "$env_name" -f "$file_path"
     elif [[ "$file_path" == *requirements.txt ]]; then
-      conda create -y -n "$env_name" python="$py_version" jupyterlab && \
-      conda activate "$env_name" && pip install -r "$file_path"
+      # If requirements.txt provided, create environment then install dependencies
+      $tool create -y -n "$env_name" python="$py_version" jupyterlab && \
+      $tool activate "$env_name" && pip install -r "$file_path"
     else
-      conda create -y -n "$env_name" python="$py_version" jupyterlab && \
-      conda activate "$env_name"
+      # If no file provided, create environment with Jupyterlab only
+      $tool create -y -n "$env_name" python="$py_version" jupyterlab && \
+      $tool activate "$env_name"
     fi
 
+    # Install Jupyterlab kernel
     python -m ipykernel install --user --name "$env_name" --display-name "Python ($env_name)"
 
+  # Virtualenv
   elif [ "$env_type" = "virtualenv" ]; then
+    # Ask for project root path
     read "root_path?Enter the path to the project root (default: current directory): "
     if [ -z "$root_path" ]; then
       root_path="."
     fi
 
+    # Optional: path to requirements.txt
     read "file_path?Optional: Path to requirements.txt (leave blank if none): "
 
-    python3 -m venv "$root_path/.venv"
+    # Create virtual environment
+    virtualenv "$root_path/.venv"
     source "$root_path/.venv/bin/activate"
+
+    # Install Jupyterlab
     pip install --upgrade pip
     pip install jupyterlab
 
+    # Install dependencies if requirements.txt provided
     if [[ "$file_path" == *requirements.txt ]]; then
       pip install -r "$file_path"
     fi
 
+    # Install Jupyterlab kernel
     python -m ipykernel install --user --name "$env_name" --display-name "Python ($env_name)"
 
   else
-    echo "Invalid environment type: use conda or virtualenv"
+    echo "Invalid environment type: use mamba, conda or virtualenv"
     return 1
   fi
 }; _mk_env'
+
 
 alias rm_env='function _rm_env() {
   local env_name="$1"
   local env_type
 
+  # Get environment name
   if [ -z "$env_name" ]; then
     read "env_name?Enter the name of the environment: "
     if [ -z "$env_name" ]; then
@@ -155,14 +177,24 @@ alias rm_env='function _rm_env() {
     fi
   fi
 
-  read "env_type?Enter the type of environment (conda, virtualenv): "
+  # Ask which type of environment to remove
+  read "env_type?Enter the type of environment (mamba, conda, virtualenv): "
 
-  if [ "$env_type" = "conda" ]; then
-    echo "Removing conda environment: $env_name"
-    conda deactivate 2>/dev/null
-    conda remove -n "$env_name" --all -y
-    jupyter kernelspec uninstall "$env_name"
+  # Conda or mamba
+  if [ "$env_type" = "conda" ] || [ "$env_type" = "mamba" ]; then
+    local tool="$env_type"
+    echo "Removing $tool environment: $env_name"
 
+    # Deactivate
+    $tool deactivate 2>/dev/null
+
+    # Uninstall Jupyterlab kernel
+    $tool run -n "$env_name" jupyter kernelspec uninstall -y "$env_name"
+
+    # Remove environment
+    $tool env remove -n "$env_name" -y
+
+  # Virtualenv
   elif [ "$env_type" = "virtualenv" ]; then
     read "root_path?Enter the path to the project root (default: current directory): "
     if [ -z "$root_path" ]; then
@@ -171,14 +203,17 @@ alias rm_env='function _rm_env() {
 
     echo "Removing virtual environment: $env_name"
     if [ -d "$root_path/.venv" ] && [ -f "$root_path/.venv/bin/activate" ]; then
+      # Uninstall Jupyterlab kernel
+      "$root_path/.venv/bin/jupyter" kernelspec uninstall -y "$env_name"
+
+      # Remove virtual environment
       rm -rf "$root_path/.venv"
-      jupyter kernelspec uninstall "$env_name"
     else
       echo "Virtual environment not found in: $root_path/.venv"
     fi
 
   else
-    echo "Invalid environment type: use conda or virtualenv"
+    echo "Invalid environment type: use mamba, conda or virtualenv"
     return 1
   fi
 }; _rm_env'
