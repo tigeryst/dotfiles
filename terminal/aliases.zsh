@@ -33,6 +33,15 @@ play() {
     ffplay -framerate "$framerate" -i "$pattern"
 }
 
+trim_png() {
+    # Usage: trim_png input.png output.png
+    if [ $# -ne 2 ]; then
+        echo "Usage: trim_png <input.png> <output.png>"
+        return 1
+    fi
+    magick "$1" -trim +repage "$2"
+}
+
 # ---------------------
 # Remote
 # ---------------------
