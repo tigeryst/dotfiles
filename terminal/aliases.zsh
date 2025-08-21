@@ -126,18 +126,24 @@ alias mk_env='function _mk_env() {
     if [[ "$file_path" == *environment.yml || "$file_path" == *environment.yaml ]]; then
       # If environment.yml provided, create environment from it
       $tool env create -n "$env_name" -f "$file_path"
-    elif [[ "$file_path" == *requirements.txt ]]; then
-      # If requirements.txt provided, create environment then install dependencies
-      $tool create -y -n "$env_name" python="$py_version" jupyterlab && \
-      $tool activate "$env_name" && pip install -r "$file_path"
     else
-      # If no file provided, create environment with Jupyterlab only
-      $tool create -y -n "$env_name" python="$py_version" jupyterlab && \
-      $tool activate "$env_name"
+      # Else just create an empty environment
+      $tool create -y -n "$env_name" python="$py_version"
     fi
 
-    # Install Jupyterlab kernel
-    python -m ipykernel install --user --name "$env_name" --display-name "Python ($env_name)"
+    # Ensure Jupyterlab and ipykernel are installed
+    $tool install -y -n "$env_name" jupyterlab ipykernel
+
+    # Upgrade pip
+    $tool run -n "$env_name" python -m pip install--upgrade pip
+
+    if [[ "$file_path" == *requirements.txt ]]; then
+      # If requirements.txt provided, install dependencies
+      $tool run -n "$env_name" python -m pip install -r "$file_path"
+    fi
+
+    # Register Jupyterlab kernel
+    $tool run -n "$env_name" python -m ipykernel install --user --name "$env_name" --display-name "Python ($env_name)"
 
   # Virtualenv
   elif [ "$env_type" = "virtualenv" ]; then
@@ -151,20 +157,22 @@ alias mk_env='function _mk_env() {
     read "file_path?Optional: Path to requirements.txt (leave blank if none): "
 
     # Create virtual environment
-    virtualenv "$root_path/.venv"
-    source "$root_path/.venv/bin/activate"
+    local venv_path="$root_path/venv"
+    virtualenv "$venv_path"
 
-    # Install Jupyterlab
-    pip install --upgrade pip
-    pip install jupyterlab
+    # Upgrade pip
+    "$venv_path/bin/python" -m pip install --upgrade pip
 
-    # Install dependencies if requirements.txt provided
+    # Ensure Jupyterlab and ipykernel are installed
+    "$venv_path/bin/python" -m pip install jupyterlab ipykernel
+
+    # If requirements.txt provided, install dependencies
     if [[ "$file_path" == *requirements.txt ]]; then
-      pip install -r "$file_path"
+      "$venv_path/bin/python" -m pip install -r "$file_path"
     fi
 
-    # Install Jupyterlab kernel
-    python -m ipykernel install --user --name "$env_name" --display-name "Python ($env_name)"
+    # Register Jupyterlab kernel
+    "$venv_path/bin/python" -m ipykernel install --user --name "$env_name" --display-name "Python ($env_name)"
 
   else
     echo "Invalid environment type: use mamba, conda or virtualenv"
@@ -211,14 +219,14 @@ alias rm_env='function _rm_env() {
     fi
 
     echo "Removing virtual environment: $env_name"
-    if [ -d "$root_path/.venv" ] && [ -f "$root_path/.venv/bin/activate" ]; then
+    if [ -d "$root_path/venv" ] && [ -f "$root_path/venv/bin/activate" ]; then
       # Uninstall Jupyterlab kernel
-      "$root_path/.venv/bin/jupyter" kernelspec uninstall -y "$env_name"
+      "$root_path/venv/bin/jupyter" kernelspec uninstall -y "$env_name"
 
       # Remove virtual environment
-      rm -rf "$root_path/.venv"
+      rm -rf "$root_path/venv"
     else
-      echo "Virtual environment not found in: $root_path/.venv"
+      echo "Virtual environment not found in: $root_path/venv"
     fi
 
   else
