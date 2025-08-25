@@ -135,7 +135,7 @@ alias mk_env='function _mk_env() {
     $tool install -y -n "$env_name" jupyterlab ipykernel
 
     # Upgrade pip
-    $tool run -n "$env_name" python -m pip install--upgrade pip
+    $tool run -n "$env_name" python -m pip install --upgrade pip
 
     if [[ "$file_path" == *requirements.txt ]]; then
       # If requirements.txt provided, install dependencies
@@ -234,3 +234,68 @@ alias rm_env='function _rm_env() {
     return 1
   fi
 }; _rm_env'
+
+alias export_env='function _export_env() {
+  local env_name="$1"
+  local env_type
+  local output_file
+
+  # Get environment name
+  if [ -z "$env_name" ]; then
+    read "env_name?Enter the name of the environment: "
+    if [ -z "$env_name" ]; then
+        echo "Error: Environment name cannot be empty."
+        return 1
+    fi
+  fi
+
+  # Ask which type of environment to export
+  read "env_type?Enter the type of environment (mamba, conda, virtualenv): "
+
+  # Ask for output file path
+  read "output_file?Enter the output file path (leave blank for default): "
+
+  # Conda or mamba
+  if [ "$env_type" = "conda" ] || [ "$env_type" = "mamba" ]; then
+    local tool="$env_type"
+    
+    # Set default output file if not provided
+    if [ -z "$output_file" ]; then
+      output_file="environment.yml"
+    fi
+
+    echo "Exporting $tool environment: $env_name to $output_file"
+
+    # Export environment and remove prefix line
+    $tool env export -n "$env_name" | grep -v "^prefix:" > "$output_file"
+    
+    echo "Environment exported successfully to: $output_file"
+
+  # Virtualenv
+  elif [ "$env_type" = "virtualenv" ]; then
+    read "root_path?Enter the path to the project root (default: current directory): "
+    if [ -z "$root_path" ]; then
+      root_path="."
+    fi
+
+    # Set default output file if not provided
+    if [ -z "$output_file" ]; then
+      output_file="requirements.txt"
+    fi
+
+    echo "Exporting virtual environment: $env_name to $output_file"
+
+    if [ -d "$root_path/venv" ] && [ -f "$root_path/venv/bin/activate" ]; then
+      # Export requirements from virtual environment
+      "$root_path/venv/bin/pip" freeze > "$output_file"
+      echo "Environment exported successfully to: $output_file"
+    else
+      echo "Virtual environment not found in: $root_path/venv"
+      return 1
+    fi
+
+  else
+    echo "Invalid environment type: use mamba, conda or virtualenv"
+    return 1
+  fi
+}; _export_env'
