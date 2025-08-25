@@ -140,21 +140,21 @@ for app in \
   "/System/Applications/Launchpad" \
   "/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari" \
   "/System/Applications/Messages" \
-  "/System/Applications/Mail" \
   "/Applications/LINE" \
   "/Applications/WhatsApp" \
-  "/Applications/WeChat" \
-  "/Applications/Telegram" \
-  "/Applications/Messenger" \
+  "/Applications/Discord" \
+  "/Applications/Slack" \
+  "/Applications/zoom.us" \
   "/System/Applications/FaceTime" \
   "/System/Applications/System Settings" \
   "/Applications/Spotify" \
   "/Applications/GoodNotes" \
   "/Applications/Google Chrome" \
   "/Applications/iTerm" \
-  "/Applications/Visual Studio Code" \
+  "/Applications/Cursor" \
   "/Applications/GitHub Desktop" \
-  "/System/Applications/App Store"; do
+  "/System/Applications/App Store" \
+  "/System/Applications/Passwords"; do
   app_string="
   <dict>
     <key>tile-data</key>
