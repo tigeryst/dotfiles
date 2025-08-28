@@ -100,5 +100,6 @@
   "files.associations": {
     "*.gs": "javascript",
     "*.css": "tailwindcss"
-  }
+  },
+  "github.copilot.nextEditSuggestions.enabled": true
 }

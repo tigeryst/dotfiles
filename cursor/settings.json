@@ -1,7 +1,6 @@
 {
   // General settings
   "workbench.iconTheme": "vscode-icons",
-  "workbench.colorTheme": "Sea Green Theme",
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook",
     "*.pdf": "latex-workshop-pdf-hook"
@@ -12,6 +11,7 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.renderWhitespace": "all",
   "editor.wordWrap": "on",
+  "editor.minimap.enabled": true,
   "editor.tokenColorCustomizations": {
     "textMateRules": [
       {
@@ -65,6 +65,15 @@
   "jupyter.interactiveWindow.textEditor.autoAddNewCell": false,
   "jupyter.interactiveWindow.creationMode": "perFile",
   "jupyter.interactiveWindow.textEditor.executeSelection": true,
+  "cursorpyright.analysis.exclude": [
+    "**/node_modules",
+    "**/__pycache__",
+    "**/data",
+    "**/.git",
+    "**/venv",
+    "**/.venv"
+  ],
+  "cursorpyright.analysis.typeCheckingMode": "strict",
   // LaTeX settings
   "latex-workshop.view.pdf.viewer": "tab",
   "[shellscript]": {
@@ -91,5 +100,14 @@
     "*.css": "tailwindcss",
     "*.tmux.conf": "shellscript"
   },
-  "editor.minimap.enabled": true
+  "[toml]": {
+    "editor.defaultFormatter": "tamasfe.even-better-toml"
+  },
+  "workbench.colorTheme": "Sea Green Theme",
+  "remote.SSH.remotePlatform": {
+    "edvent": "linux",
+    "moana": "linux",
+    "homer": "linux"
+  },
+  "terminal.integrated.inheritEnv": false
 }
