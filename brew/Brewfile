@@ -1,5 +1,5 @@
 # Brew
-brew "cabal-install"
+brew "cabal-install" # Haskell package manager
 brew "ffmpeg" # convert video formats, frames to video, record, and stream
 brew "ghc" # Haskell compiler
 brew "git"
