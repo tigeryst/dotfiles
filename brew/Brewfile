@@ -10,6 +10,8 @@ brew "mysql"
 brew "node"
 brew "openjdk"
 brew "pyenv"
+brew "pyenv"
+brew "python"
 brew "rustup"
 brew "tmux" # terminal multiplexer
 brew "wget" # allow non-GUI file download from the web
