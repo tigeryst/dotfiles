@@ -26,4 +26,3 @@ brew cleanup
 # Start local database services
 echo "Starting database servers..."
 brew services start mysql
-brew services start mongodb-community

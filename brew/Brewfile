@@ -1,10 +1,12 @@
 # Brew
 brew "cabal-install"
 brew "ffmpeg" # convert video formats, frames to video, record, and stream
-brew "ghc"
+brew "ghc" # Haskell compiler
 brew "git"
+brew "htop"
 brew "imagemagick"
 brew "mas"
+brew "mysql"
 brew "node"
 brew "openjdk"
 brew "pyenv"
@@ -14,25 +16,24 @@ brew "wget" # allow non-GUI file download from the web
 
 # Cask
 cask "anki"
+cask "blender"
 cask "calibre"
 cask "cursor"
 cask "dbeaver-community"
 cask "discord"
-cask "docker"
+cask "docker-desktop"
 cask "figma"
 cask "github"
 cask "google-chrome"
 cask "google-drive"
 cask "iterm2"
 cask "mactex-no-gui"
+cask "microsoft-teams"
 cask "miniforge"
 cask "postman"
 cask "quicklook-json"
 cask "spotify"
 cask "steam"
-cask "thinlinc-client" # ThinLinc for UCL remote desktop
-cask "unity-hub"
-cask "visual-studio-code"
 cask "zoom"
 
 # Mac App Store
