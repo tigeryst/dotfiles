@@ -10,7 +10,6 @@ brew "mysql"
 brew "node"
 brew "openjdk"
 brew "pyenv"
-brew "pyenv"
 brew "python"
 brew "rustup"
 brew "tmux" # terminal multiplexer
