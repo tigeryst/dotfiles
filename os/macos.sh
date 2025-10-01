@@ -21,18 +21,24 @@ if [ "$0" = "$BASH_SOURCE" ]; then
 fi
 
 # Close any open System Settings panes, to prevent them from overriding
-# settings we’re about to change
+# settings we're about to change
 osascript -e 'tell application "System Settings" to quit'
 
 ###############################################################################
 # Computer and network                                                        #
 ###############################################################################
 
+# Prompt for computer name
+read -p "Enter your computer name (e.g., John's MacBook): " COMPUTER_NAME
+
+# Generate hostname-friendly version (remove spaces, apostrophes, and special characters)
+LOCAL_HOST_NAME=$(echo "$COMPUTER_NAME" | sed "s/'//g" | sed 's/ /-/g')
+
 # Set computer name
-sudo scutil --set ComputerName "Tiger's MacBook Pro"
-sudo scutil --set HostName "Tiger's MacBook Pro"
-sudo scutil --set LocalHostName "Tigers-MacBook-Pro"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "Tiger's MacBook Pro"
+sudo scutil --set ComputerName "$COMPUTER_NAME"
+sudo scutil --set HostName "$COMPUTER_NAME"
+sudo scutil --set LocalHostName "$LOCAL_HOST_NAME"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$COMPUTER_NAME"
 
 ###############################################################################
 # UI/UX                                                                       #
@@ -138,12 +144,13 @@ defaults write com.apple.dock persistent-apps -array
 
 for app in \
   "/System/Applications/Launchpad" \
-  "/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari" \
+  "/System/Cryptexes/App/System/Applications/Safari" \
   "/System/Applications/Messages" \
   "/Applications/LINE" \
   "/Applications/WhatsApp" \
   "/Applications/Discord" \
   "/Applications/Slack" \
+  "/Applications/Microsoft Teams" \
   "/Applications/zoom.us" \
   "/System/Applications/FaceTime" \
   "/System/Applications/System Settings" \
@@ -154,7 +161,8 @@ for app in \
   "/Applications/Cursor" \
   "/Applications/GitHub Desktop" \
   "/System/Applications/App Store" \
-  "/System/Applications/Passwords"; do
+  "/System/Applications/Passwords" \
+  "/System/Applications/iPhone Mirroring"; do
   app_string="
   <dict>
     <key>tile-data</key>
