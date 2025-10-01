@@ -27,10 +27,10 @@ code --install-extension mikestead.dotenv
 code --install-extension ms-python.black-formatter
 # Python
 code --install-extension ms-python.python
-# Sea Green Theme
-code --install-extension raashida.fixthecode-vs
-# vscode-icons
-code --install-extension vscode-icons-team.vscode-icons
+# Catppuccin Theme
+code --install-extension Catppuccin.catppuccin-vsc
+# Material Icon
+code --install-extension PKief.material-icon-theme
 # Live Server
 code --install-extension ritwickdey.LiveServer
 # Jupyter

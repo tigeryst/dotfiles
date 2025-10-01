@@ -1,6 +1,6 @@
 {
   // General settings
-  "workbench.iconTheme": "vscode-icons",
+  "workbench.iconTheme": "material-icon-theme",
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook",
     "*.pdf": "latex-workshop-pdf-hook"
@@ -103,8 +103,8 @@
   "[toml]": {
     "editor.defaultFormatter": "tamasfe.even-better-toml"
   },
-  "workbench.colorTheme": "Sea Green Theme",
   "terminal.integrated.inheritEnv": false,
   "remote.autoForwardPortsSource": "hybrid",
-  "editor.accessibilitySupport": "off"
+  "editor.accessibilitySupport": "off",
+  "workbench.colorTheme": "Catppuccin Mocha"
 }
