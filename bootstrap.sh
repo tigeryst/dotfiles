@@ -93,5 +93,5 @@ source "$HOME/.dotfiles/os/macos.sh"
 echo -n "Log in to your Google Drive then press enter to continue... "
 read check
 
-echo "Set up of your Mac is completed"
+echo "Set up of your Mac is completed. It is recommended to restart the computer to apply all changes."
 echo 'Enjoy!'

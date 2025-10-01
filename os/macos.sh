@@ -279,12 +279,16 @@ defaults write com.google.Chrome.canary PMPrintingExpandedStateForPrint2 -bool t
 # Kill affected applications                                                  #
 ###############################################################################
 
-# SystemUIServer is responsible for the clock, notifications and menu bar
-for app in \
-  "SystemUIServer" \
-  "Dock" \
-  "Finder" \
-  "Photos" \
-  "Google Chrome"; do
-  killall "${app}" &>/dev/null
-done
+echo "System preferences restored"
+
+# Kill affected applications (only when running as main script, not when sourced)
+if [ "$0" = "$BASH_SOURCE" ]; then
+  for app in \
+    "SystemUIServer" \
+    "Dock" \
+    "Finder" \
+    "Photos" \
+    "Google Chrome"; do
+    killall "${app}" &>/dev/null
+  done
+fi
