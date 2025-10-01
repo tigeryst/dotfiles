@@ -19,6 +19,7 @@ fi
 echo -n "Log in to the App Store with your Apple ID then press enter to continue... "
 read check
 # Install all our dependencies with bundle (See Brewfile)
+brew update
 brew bundle --file="$HOME/.dotfiles/brew/Brewfile"
 brew upgrade
 brew cleanup

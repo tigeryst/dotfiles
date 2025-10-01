@@ -34,6 +34,8 @@ If you find this useful, feel free to fork this repository and make it your own!
 1. Run the bootstrap installation: `~/.dotfiles/bootstrap.sh`
 1. Restart the computer to ensure changes are applied
 
+> Note: If the bootstrap script exits early before you see the completion message due to certain installations, you may need to run the same command again.
+
 ## Before restoring to factory settings
 
 1. Make sure that the dotfiles are up to date with the current set up

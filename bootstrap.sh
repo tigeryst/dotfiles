@@ -35,7 +35,7 @@ fi
 if [ -d "$HOME/.oh-my-zsh" ]; then
   echo "Oh My Zsh is already installed"
 else
-  echo "Installing Oh My Zsh"
+  echo "Installing Oh My Zsh. You may need to run this script again after it finishes."
   /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/HEAD/tools/install.sh)"
 fi
 
@@ -45,8 +45,24 @@ if command -v brew &>/dev/null; then
 else
   echo "Installing Homebrew"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  brew update
 fi
+
+# Add Homebrew to PATH
+BREW_PATH="/opt/homebrew/bin/brew"
+BREW_SHELLENV="eval \"\$($BREW_PATH shellenv)\""
+
+# Create .zprofile if it doesn't exist
+if [ ! -f "$HOME/.zprofile" ]; then
+  touch "$HOME/.zprofile"
+fi
+
+if ! grep -Fxq "$BREW_SHELLENV" "$HOME/.zprofile"; then
+  echo "" >> "$HOME/.zprofile"
+  echo "$BREW_SHELLENV" >> "$HOME/.zprofile"
+fi
+
+eval "$($BREW_PATH shellenv)"
+
 
 source "$HOME/.dotfiles/brew/install.sh"
 source "$HOME/.dotfiles/cursor/extensions.sh"
