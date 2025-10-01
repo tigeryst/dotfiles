@@ -3,32 +3,33 @@ set -eu
 
 echo "Setting up your Mac..."
 
-# Check if script is running as the main script and not being sourced
-if [ "$0" = "$BASH_SOURCE" ]; then
-  # Ask for the administrator password upfront
+# Ask for sudo once, keep-alive
+if [ "$0" = "${BASH_SOURCE[0]}" ]; then
   sudo -v
-
-  # Keep-alive: update existing sudo timestamp until script has finished
-  while true; do
-    sudo -n true
-    sleep 60
-    kill -0 "$$" || exit
-  done 2>/dev/null &
+  while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 fi
 
-echo -n "Connect to the internet then press enter to continue... "
-read check
+# --------------------
+# User-defined variables
+# --------------------
 
-# Prompt for git user configuration
-read -p "Enter your git user name: " git_name
-read -p "Enter your git email: " git_email
+read -rp "Connect to the internet then press enter to continue... " _
+
+read -rp "Enter your git user name: " git_name
+read -rp "Enter your git email: " git_email
+
+# --------------------
+# Pre-requisites
+# --------------------
+
+echo "Installing pre-requisites..."
 
 # Install Xcode
-if command -v xcode-select &>/dev/null; then
-  echo "Xcode is already installed"
+if xcode-select -p >/dev/null 2>&1; then
+  echo "Xcode command line tools already installed"
 else
-  echo "Installing Xcode"
-  xcode-select --install
+  echo "Installing Xcode command line tools"
+  xcode-select --install || true
 fi
 
 # Install Oh My Zsh
@@ -47,62 +48,87 @@ else
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-# Add Homebrew to PATH
-BREW_PATH="/opt/homebrew/bin/brew"
-BREW_SHELLENV="eval \"\$($BREW_PATH shellenv)\""
-
-# Create .zprofile if it doesn't exist
-if [ ! -f "$HOME/.zprofile" ]; then
-  touch "$HOME/.zprofile"
+# Locate brew and eval shellenv without relying on PATH yet
+BREW_BIN=""
+for p in /opt/homebrew/bin/brew /usr/local/bin/brew; do
+  [ -x "$p" ] && BREW_BIN="$p" && break
+done
+[ -z "$BREW_BIN" ] && BREW_BIN="$(command -v brew || true)"
+if [ -z "$BREW_BIN" ]; then
+  echo "Error: brew not found after install"; exit 1
 fi
+eval "$("$BREW_BIN" shellenv)"  # makes brew usable now
+HOMEBREW_PREFIX="$(brew --prefix)"
 
-if ! grep -Fxq "$BREW_SHELLENV" "$HOME/.zprofile"; then
-  echo "" >> "$HOME/.zprofile"
-  echo "$BREW_SHELLENV" >> "$HOME/.zprofile"
-fi
+# --------------------
+# Symlinks
+# --------------------
 
-eval "$($BREW_PATH shellenv)"
+echo "Creating symlinks..."
 
+# Helper: safe idempotent symlink maker
+link() {
+  # link <target> <linkpath>
+  local target="$1" linkpath="$2"
+  mkdir -p "$(dirname "$linkpath")"
+  if [ -L "$linkpath" ] || [ -e "$linkpath" ]; then
+    if [ "$(readlink "$linkpath" 2>/dev/null || true)" = "$target" ]; then
+      echo "✓ $linkpath already -> $target"
+      return 0
+    else
+      rm -f "$linkpath"
+    fi
+  fi
+  ln -s "$target" "$linkpath"
+  echo "→ $linkpath -> $target"
+}
 
-source "$HOME/.dotfiles/brew/install.sh"
-source "$HOME/.dotfiles/cursor/extensions.sh"
+# zprofile (login shell)
+link "$HOME/.dotfiles/terminal/.zprofile" "$HOME/.zprofile"
 
-echo "Setting up git..."
-rm -f "$HOME/.gitconfig"
-ln -s "$HOME/.dotfiles/git/.gitconfig" "$HOME/.gitconfig"
+# zshrc (interactive shell)
+link "$HOME/.dotfiles/terminal/.zshrc" "$HOME/.zshrc"
 
-# Create .gitconfig.local with user-specific settings
-cat > "$HOME/.gitconfig.local" << EOF
+# Git
+link "$HOME/.dotfiles/git/.gitconfig" "$HOME/.gitconfig"
+cat > "$HOME/.gitconfig.local" <<EOF
 [user]
-	name = $git_name
-	email = $git_email
+    name = $git_name
+    email = $git_email
 EOF
-
 echo "Git user configured: $git_name <$git_email>"
 
+# Cursor
+link "$HOME/.dotfiles/cursor/settings.json" "$HOME/Library/Application Support/Cursor/User/settings.json"
+
+# Others
+link "$HOME/.dotfiles/tmux/.tmux.conf" "$HOME/.tmux.conf"
+link "$HOME/.dotfiles/haskell/.ghci" "$HOME/.ghci"
+
+# --------------------
+# Install applications
+# --------------------
+
+source "$HOME/.dotfiles/brew/install.sh"
+
+CURSOR_CODE="/Applications/Cursor.app/Contents/Resources/app/bin/code"
+if [ -x "$CURSOR_CODE" ]; then
+  ln -sf "$CURSOR_CODE" "$HOMEBREW_PREFIX/bin/code"
+  echo "→ Installed 'code' CLI to $HOMEBREW_PREFIX/bin/code"
+else
+  echo "⚠️ Cursor.app not found at $CURSOR_CODE; install it via 'brew install --cask cursor' later."
+fi
+
+source "$HOME/.dotfiles/cursor/extensions.sh"
 source "$HOME/.dotfiles/terminal/install.sh"
-
-echo "Creating symbolic links..."
-# Symlink the .zshrc file
-rm -f "$HOME/.zshrc"
-ln -s "$HOME/.dotfiles/terminal/.zshrc" "$HOME/.zshrc"
-
-# Symlink Cursor settings
-rm -f "$HOME/Library/Application Support/Cursor/User/settings.json"
-ln -s "$HOME/.dotfiles/cursor/settings.json" "$HOME/Library/Application Support/Cursor/User/settings.json"
-
-# Symlink tmux settings
-rm -f "$HOME/.tmux.conf"
-ln -s "$HOME/.dotfiles/tmux/.tmux.conf" "$HOME/.tmux.conf"
-
-# Symlink the .ghci file for haskell
-rm -f "$HOME/.ghci"
-ln -s "$HOME/.dotfiles/haskell/.ghci" "$HOME/.ghci"
-
 source "$HOME/.dotfiles/tmux/install.sh"
 source "$HOME/.dotfiles/javascript/install.sh"
 source "$HOME/.dotfiles/python/install.sh"
 source "$HOME/.dotfiles/rust/install.sh"
+
+# --------------------
+# macOS settings
+# --------------------
 
 source "$HOME/.dotfiles/os/macos.sh"
 

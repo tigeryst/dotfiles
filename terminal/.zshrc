@@ -1,6 +1,3 @@
-# Path to dotfiles.
-export DOTFILES="$HOME/.dotfiles"
-
 # Path to oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -9,8 +6,6 @@ export EDITOR='code -w'
 
 # Ensure 256 color support
 export TERM=xterm-256color
-
-export JAVA_HOME="/usr/local/opt/openjdk/bin/java"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -23,15 +18,6 @@ ZSH_THEME="robbyrussell"
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Enable command auto-correction.
-ENABLE_CORRECTION="true"
-
-# Automatically update without prompting.
-DISABLE_UPDATE_PROMPT="true"
 
 # Custom folder other than $ZSH/custom?
 ZSH_CUSTOM="$DOTFILES/terminal"
@@ -52,9 +38,18 @@ plugins=(
     zsh-syntax-highlighting
 )
 
-eval "$(pyenv init -)"
+# Use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Enable command auto-correction.
+ENABLE_CORRECTION="true"
+
+# Automatically update without prompting.
+DISABLE_UPDATE_PROMPT="true"
 
 source "$ZSH/oh-my-zsh.sh"
+
+eval "$(pyenv init -)"
 
 PATH="$HOME/perl5/bin${PATH:+:${PATH}}"
 export PATH
@@ -67,30 +62,29 @@ export PERL_MB_OPT
 PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"
 export PERL_MM_OPT
 
+# Prefix-agnostic using brew --prefix: ARM (/opt/homebrew) or Intel (/usr/local).
+{
+  HOMEBREW_PREFIX="$(brew --prefix 2>/dev/null || true)"
+  MINIFORGE_BASE="$HOMEBREW_PREFIX/Caskroom/miniforge/base"
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/usr/local/Caskroom/miniforge/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/usr/local/Caskroom/miniforge/base/etc/profile.d/conda.sh" ]; then
-        . "/usr/local/Caskroom/miniforge/base/etc/profile.d/conda.sh"
+  if [ -x "$MINIFORGE_BASE/bin/conda" ]; then
+    __conda_setup="$("$MINIFORGE_BASE/bin/conda" 'shell.zsh' 'hook' 2> /dev/null)" || true
+    if [ -n "$__conda_setup" ]; then
+      eval "$__conda_setup"
+    elif [ -f "$MINIFORGE_BASE/etc/profile.d/conda.sh" ]; then
+      . "$MINIFORGE_BASE/etc/profile.d/conda.sh"
     else
-        export PATH="/usr/local/Caskroom/miniforge/base/bin:$PATH"
+      export PATH="$MINIFORGE_BASE/bin:$PATH"
     fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-# >>> mamba initialize >>>
-# !! Contents within this block are managed by 'mamba shell init' !!
-export MAMBA_EXE='/usr/local/Caskroom/miniforge/base/condabin/mamba';
-export MAMBA_ROOT_PREFIX='/usr/local/Caskroom/miniforge/base';
-__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__mamba_setup"
-else
-    alias mamba="$MAMBA_EXE"  # Fallback on help from mamba activate
-fi
-unset __mamba_setup
-# <<< mamba initialize <<<
+    unset __conda_setup
+
+    # Mamba hook
+    export MAMBA_EXE="$MINIFORGE_BASE/condabin/mamba"
+    export MAMBA_ROOT_PREFIX="$MINIFORGE_BASE"
+    if [ -x "$MAMBA_EXE" ]; then
+      __mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2>/dev/null)" || true
+      [ -n "$__mamba_setup" ] && eval "$__mamba_setup"
+      unset __mamba_setup
+    fi
+  fi
+}
