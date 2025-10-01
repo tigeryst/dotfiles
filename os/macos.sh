@@ -98,7 +98,7 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
 # Set language and text formats
-defaults write NSGlobalDomain AppleLanguages -array "en-GB" "en-US" "th-TH"
+defaults write NSGlobalDomain AppleLanguages -array "en-US" "th-TH"
 defaults write NSGlobalDomain AppleLocale -string "en_GB@calendar=gregorian;rg=thzzzz"
 defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
 defaults write NSGlobalDomain AppleMetricUnits -bool true
