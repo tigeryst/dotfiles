@@ -104,10 +104,7 @@
     "editor.defaultFormatter": "tamasfe.even-better-toml"
   },
   "workbench.colorTheme": "Sea Green Theme",
-  "remote.SSH.remotePlatform": {
-    "edvent": "linux",
-    "moana": "linux",
-    "homer": "linux"
-  },
-  "terminal.integrated.inheritEnv": false
+  "terminal.integrated.inheritEnv": false,
+  "remote.autoForwardPortsSource": "hybrid",
+  "editor.accessibilitySupport": "off"
 }
