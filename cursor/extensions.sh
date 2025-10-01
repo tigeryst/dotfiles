@@ -19,8 +19,6 @@ code --install-extension haskell.haskell
 code --install-extension justusadam.language-haskell
 # LaTeX Workshop
 code --install-extension james-yu.latex-workshop
-# Format Files
-code --install-extension jbockle.jbockle-format-files
 # JSON to CSV
 code --install-extension khaeransori.json2csv
 # Rainbow CSV
