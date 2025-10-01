@@ -19,6 +19,10 @@ fi
 echo -n "Connect to the internet then press enter to continue... "
 read check
 
+# Prompt for git user configuration
+read -p "Enter your git user name: " git_name
+read -p "Enter your git email: " git_email
+
 # Install Xcode
 if command -v xcode-select &>/dev/null; then
   echo "Xcode is already installed"
@@ -45,28 +49,27 @@ else
 fi
 
 source "$HOME/.dotfiles/brew/install.sh"
-source "$HOME/.dotfiles/vscode/extensions.sh" # TODO: remove if cursor turns out to be better
 source "$HOME/.dotfiles/cursor/extensions.sh"
 
 echo "Setting up git..."
-echo -n "Ensure that you are connected to iCloud and have your GitHub credentials saved to your Keychain then press enter to continue... "
-read check
 rm -f "$HOME/.gitconfig"
 ln -s "$HOME/.dotfiles/git/.gitconfig" "$HOME/.gitconfig"
 
-source "$HOME/.dotfiles/git/clone.sh"
+# Create .gitconfig.local with user-specific settings
+cat > "$HOME/.gitconfig.local" << EOF
+[user]
+	name = $git_name
+	email = $git_email
+EOF
+
+echo "Git user configured: $git_name <$git_email>"
+
 source "$HOME/.dotfiles/terminal/install.sh"
 
 echo "Creating symbolic links..."
 # Symlink the .zshrc file
 rm -f "$HOME/.zshrc"
 ln -s "$HOME/.dotfiles/terminal/.zshrc" "$HOME/.zshrc"
-
-# Symlink VS Code settings
-rm -f "$HOME/Library/Application Support/Code/User/settings.json"
-ln -s "$HOME/.dotfiles/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
-# TODO: remove if cursor turns out to be better
-# TODO: also remove the ./vscode folder to avoid redundancy
 
 # Symlink Cursor settings
 rm -f "$HOME/Library/Application Support/Cursor/User/settings.json"

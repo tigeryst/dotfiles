@@ -1,4 +1,4 @@
-## Introduction
+# Dotfiles
 
 This is the development environment set up for my MacBook. It contains configuration files (dotfiles) and scripts that will automatically restore my apps, IDE extensions and settings, GitHub credentials and system preferences whenever I need to set up a new MacBook.
 
@@ -10,9 +10,28 @@ If you find this useful, feel free to fork this repository and make it your own!
 1. Update macOS to the latest version
 1. Log in to iCloud and enable iCloud Keychain
 1. Log in to the App Store
-1. Log in to [GitHub](https://github.com) and ensure that the password is saved in iCloud Keychain
-1. Clone this repository into the `~/.dotfiles` local directory using `git clone https://github.com/tigeryst/dotfiles ~/.dotfiles`
-1. Run the bootstrap installation with `~/.dotfiles/bootstrap.sh`
+1. Generate SSH keys for GitHub:
+
+   ```bash
+   # Generate a new SSH key
+   ssh-keygen -t ed25519 -C "<user@machine-name>"
+
+   # Copy the public key to clipboard
+   pbcopy < ~/.ssh/id_ed25519.pub
+   ```
+
+1. Add the SSH key to GitHub:
+   - Go to [github.com/settings/keys](https://github.com/settings/keys)
+   - Click "New SSH key"
+   - Give it a title (e.g., "MacBook Pro")
+   - Paste the key and click "Add SSH key"
+1. Clone this repository into the `~/.dotfiles` local directory:
+
+   ```bash
+   git clone git@github.com:tigeryst/dotfiles.git ~/.dotfiles
+   ```
+
+1. Run the bootstrap installation: `~/.dotfiles/bootstrap.sh`
 1. Restart the computer to ensure changes are applied
 
 ## Before restoring to factory settings
@@ -26,15 +45,16 @@ If you find this useful, feel free to fork this repository and make it your own!
 
 These steps are automated with the [`bootstrap.sh`](bootstrap.sh) script.
 
-1. Install Xcode, Oh My Zsh and Homebrew.
-2. Install apps
-3. Install Visual Studio Code (VS Code) extensions
-4. Set up GitHub credentials
-5. Clone active Git repositories
-6. Install iTerm2 plugins
-7. Symbolic link Z Shell (Zsh), VS Code and Haskell interpreter configuration files
-8. Restore macOS settings
-9. Prompt to log in and sync with Google Drive
+1. Install Xcode, Oh My Zsh and Homebrew
+1. Install apps via Homebrew
+1. Install Cursor extensions
+1. Symlink Git configuration
+1. Install terminal (Zsh) plugins
+1. Symbolic link Z Shell (Zsh), Cursor, tmux and Haskell interpreter configuration files
+1. Install tmux plugins
+1. Install JavaScript (Node.js), Python and Rust development tools
+1. Restore macOS settings
+1. Prompt to log in and sync with Google Drive
 
 ## Tweaking the set up
 
@@ -44,24 +64,37 @@ The set up steps are spread across various files and can be tweaked as needed. K
 
 Apps should be managed through the Homebrew package manager.
 
-- To remove an app, run `brew uninstall app_name` then make sure to remove the app from the [`brew/Brewfile`](brew/Brewfile)
-- To install a new app, check if the app to install is available from the [Homebrew directory](https://caskroom.github.io/search) and run 'brew install app_name' then make sure to add the app to the brew/Brewfile
+- To remove an app, run `brew uninstall <app-name>` then make sure to remove the app from the [`brew/Brewfile`](brew/Brewfile)
+- To install a new app, check if the app to install is available from the [Homebrew directory](https://caskroom.github.io/search) and run `brew install <app-name>` then make sure to add the app to the Brewfile
 - If the app is not available on Homebrew but is instead available on the App Store, install it from the App Store and add it to the Brewfile under the [mas](https://github.com/mas-cli/mas) section
 
-The [`brew/install.sh`](brew/install.sh) script executes the Bew installations and starts background services such as MySQL or MongoDB databases.
+The [`brew/install.sh`](brew/install.sh) script executes the Brew installations and starts background services such as MySQL and MongoDB databases.
 
-### VS Code
+### Git and GitHub
 
-Installation commands for the VS Code extensions is listed in the [`vscode/extensions.sh`](vscode/extensions.sh) script.
+Git configuration is symlinked to the [`git/.gitconfig`](git/.gitconfig) file. Update your name and email in this file as needed.
 
-- When installing a new extension, make sure to append `code --install-extension extension_id` to the script. Extension ID can be copied from the extensions tab on VS Code.
+SSH keys for GitHub authentication should be set up manually before cloning this repository (see setup instructions above). Once configured, you can clone and push to repositories using SSH URLs (e.g., `git@github.com:<username>/<repo>.git`) for passwordless authentication.
+
+To generate additional SSH keys for other services or machines, use:
+
+```bash
+ssh-keygen -t ed25519 -C "<your-email@example.com>"
+ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+```
+
+### Cursor
+
+Installation commands for Cursor extensions are listed in the [`cursor/extensions.sh`](cursor/extensions.sh) script.
+
+- When installing a new extension, make sure to append `code --install-extension <extension-id>` to the script. Extension ID can be copied from the extensions tab in Cursor.
 - When uninstalling an extension, make sure to remove the corresponding command from the script.
 
-User settings for VS Code are symlinked to the [`vscode/settings.json`](vscode/settings.json) file so any settings changed from VS Code is automatically reflected in the file which is committed to this repo.
+User settings for Cursor are symlinked to the [`cursor/settings.json`](cursor/settings.json) file so any settings changed from Cursor are automatically reflected in the file which is committed to this repo.
 
 ### macOS settings
 
-On a Mac, system settings are normally stored in Property List files (PLIST) in an XML key-value pair format. These settings can be read using `defaults read domain_name key` and overwritten with `defaults write domain_name key value`. Do an internet search to find the right command for the setting you are looking for.
+On a Mac, system settings are normally stored in Property List files (PLIST) in an XML key-value pair format. These settings can be read using `defaults read <domain-name> <key>` and overwritten with `defaults write <domain-name> <key> <value>`. Do an internet search to find the right command for the setting you are looking for.
 
 The [`os/macos.sh`](os/macos.sh) script contains such settings commands including region format, languages, menu bar, dock, keyboard and trackpad. Instead of updating settings through the System Settings UI, try to find the right command and add it to the script.
 
