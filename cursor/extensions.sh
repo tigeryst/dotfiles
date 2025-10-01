@@ -19,8 +19,6 @@ code --install-extension haskell.haskell
 code --install-extension justusadam.language-haskell
 # LaTeX Workshop
 code --install-extension james-yu.latex-workshop
-# JSON to CSV
-code --install-extension khaeransori.json2csv
 # Rainbow CSV
 code --install-extension mechatroner.rainbow-csv
 # DotENV
