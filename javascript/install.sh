@@ -7,6 +7,7 @@ npm install -g n
 npm install -g typescript
 npm install -g corepack
 npm install -g @anthropic-ai/claude-code
+npm install -g vercel
 
 # Enable corepack for yarn and pnpm
 corepack enable
