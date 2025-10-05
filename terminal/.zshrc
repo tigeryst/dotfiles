@@ -62,29 +62,31 @@ export PERL_MB_OPT
 PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"
 export PERL_MM_OPT
 
-# Prefix-agnostic using brew --prefix: ARM (/opt/homebrew) or Intel (/usr/local).
-{
-  HOMEBREW_PREFIX="$(brew --prefix 2>/dev/null || true)"
-  MINIFORGE_BASE="$HOMEBREW_PREFIX/Caskroom/miniforge/base"
-
-  if [ -x "$MINIFORGE_BASE/bin/conda" ]; then
-    __conda_setup="$("$MINIFORGE_BASE/bin/conda" 'shell.zsh' 'hook' 2> /dev/null)" || true
-    if [ -n "$__conda_setup" ]; then
-      eval "$__conda_setup"
-    elif [ -f "$MINIFORGE_BASE/etc/profile.d/conda.sh" ]; then
-      . "$MINIFORGE_BASE/etc/profile.d/conda.sh"
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/homebrew/Caskroom/miniforge/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/conda.sh" ]; then
+        . "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/conda.sh"
     else
-      export PATH="$MINIFORGE_BASE/bin:$PATH"
+        export PATH="/opt/homebrew/Caskroom/miniforge/base/bin:$PATH"
     fi
-    unset __conda_setup
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
-    # Mamba hook
-    export MAMBA_EXE="$MINIFORGE_BASE/condabin/mamba"
-    export MAMBA_ROOT_PREFIX="$MINIFORGE_BASE"
-    if [ -x "$MAMBA_EXE" ]; then
-      __mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2>/dev/null)" || true
-      [ -n "$__mamba_setup" ] && eval "$__mamba_setup"
-      unset __mamba_setup
-    fi
-  fi
-}
+
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'mamba shell init' !!
+export MAMBA_EXE='/opt/homebrew/bin/mamba';
+export MAMBA_ROOT_PREFIX='/opt/homebrew/Caskroom/miniforge/base';
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    alias mamba="$MAMBA_EXE"  # Fallback on help from mamba activate
+fi
+unset __mamba_setup
+# <<< mamba initialize <<<
