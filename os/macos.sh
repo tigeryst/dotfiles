@@ -138,13 +138,11 @@ defaults write com.apple.dock persistent-apps -array
 for app in \
   "/System/Applications/Launchpad" \
   "/System/Cryptexes/App/System/Applications/Safari" \
-  "/System/Applications/Messages" \
   "/Applications/LINE" \
   "/Applications/WhatsApp" \
   "/Applications/Discord" \
   "/Applications/Slack" \
   "/Applications/Microsoft Teams" \
-  "/Applications/zoom.us" \
   "/System/Applications/FaceTime" \
   "/System/Applications/System Settings" \
   "/Applications/Spotify" \
@@ -152,9 +150,9 @@ for app in \
   "/Applications/Google Chrome" \
   "/Applications/iTerm" \
   "/Applications/Cursor" \
+  "/Applications/ChatGPT" \
   "/Applications/GitHub Desktop" \
   "/System/Applications/App Store" \
-  "/System/Applications/Passwords" \
   "/System/Applications/iPhone Mirroring"; do
   app_string="
   <dict>

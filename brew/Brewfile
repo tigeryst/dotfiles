@@ -20,6 +20,7 @@ brew "wget" # allow non-GUI file download from the web
 cask "anki"
 cask "blender"
 cask "calibre"
+cask "chatgpt"
 cask "cursor"
 cask "dbeaver-community"
 cask "discord"

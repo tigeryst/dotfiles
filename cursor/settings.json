@@ -106,5 +106,6 @@
   "terminal.integrated.inheritEnv": false,
   "remote.autoForwardPortsSource": "hybrid",
   "editor.accessibilitySupport": "off",
-  "workbench.colorTheme": "Catppuccin Mocha"
+  "workbench.colorTheme": "Catppuccin Mocha",
+  "window.commandCenter": true
 }
