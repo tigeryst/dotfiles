@@ -1,6 +1,7 @@
 # Brew
 brew "cabal-install" # Haskell package manager
 brew "ffmpeg" # convert video formats, frames to video, record, and stream
+brew "gh" # GitHub CLI
 brew "ghc" # Haskell compiler
 brew "git"
 brew "htop"
@@ -18,7 +19,6 @@ brew "wget" # allow non-GUI file download from the web
 cask "anki"
 cask "blender"
 cask "calibre"
-cask "chatgpt"
 cask "cursor"
 cask "dbeaver-community"
 cask "discord"
@@ -33,12 +33,10 @@ cask "microsoft-teams"
 cask "miniforge"
 cask "postman"
 cask "quicklook-json"
-cask "spotify"
 cask "steam"
 cask "zoom"
 
 # Mac App Store
-mas "CopyClip", id: 1020812363
 mas "GoodNotes", id: 1444383602
 mas "Keynote", id: 409183694
 mas "LINE", id: 539883307
