@@ -136,24 +136,22 @@ defaults write com.apple.dock show-recents -bool false
 defaults write com.apple.dock persistent-apps -array
 
 for app in \
-  "/System/Applications/Launchpad" \
-  "/System/Cryptexes/App/System/Applications/Safari" \
+  "/System/Applications/Apps" \
+  "/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari" \
   "/Applications/LINE" \
   "/Applications/WhatsApp" \
   "/Applications/Discord" \
   "/Applications/Slack" \
   "/Applications/Microsoft Teams" \
   "/System/Applications/FaceTime" \
-  "/System/Applications/System Settings" \
-  "/Applications/Spotify" \
   "/Applications/GoodNotes" \
   "/Applications/Google Chrome" \
   "/Applications/iTerm" \
   "/Applications/Cursor" \
-  "/Applications/ChatGPT" \
   "/Applications/GitHub Desktop" \
   "/System/Applications/App Store" \
-  "/System/Applications/iPhone Mirroring"; do
+  "/System/Applications/iPhone Mirroring" \
+  "/System/Applications/System Settings"; do
   app_string="
   <dict>
     <key>tile-data</key>
