@@ -49,10 +49,10 @@ These steps are automated with the [`bootstrap.sh`](bootstrap.sh) script.
 
 1. Install Xcode, Oh My Zsh and Homebrew
 1. Install apps via Homebrew
-1. Install Cursor extensions
+1. Install VS Code extensions
 1. Symlink Git configuration
 1. Install terminal (Zsh) plugins
-1. Symbolic link Z Shell (Zsh), Cursor, tmux and Haskell interpreter configuration files
+1. Symbolic link Z Shell (Zsh), VS Code, tmux, and Haskell interpreter configuration files
 1. Install tmux plugins
 1. Install JavaScript (Node.js), Python and Rust development tools
 1. Restore macOS settings
@@ -85,14 +85,14 @@ ssh-keygen -t ed25519 -C "<your-email@example.com>"
 ssh-add --apple-use-keychain ~/.ssh/id_ed25519
 ```
 
-### Cursor
+### VS Code
 
-Installation commands for Cursor extensions are listed in the [`cursor/extensions.sh`](cursor/extensions.sh) script.
+Installation commands for VS Code extensions are listed in the [`vscode/extensions.sh`](vscode/extensions.sh) script.
 
-- When installing a new extension, make sure to append `code --install-extension <extension-id>` to the script. Extension ID can be copied from the extensions tab in Cursor.
+- When installing a new extension, make sure to append `code --install-extension <extension-id>` to the script. Extension ID can be copied from the extensions tab in VS Code.
 - When uninstalling an extension, make sure to remove the corresponding command from the script.
 
-User settings for Cursor are symlinked to the [`cursor/settings.json`](cursor/settings.json) file so any settings changed from Cursor are automatically reflected in the file which is committed to this repo.
+User settings for VS Code are symlinked to the [`vscode/settings.json`](vscode/settings.json) file so any settings changed from VS Code are automatically reflected in the file which is committed to this repo.
 
 ### macOS settings
 

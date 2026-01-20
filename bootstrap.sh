@@ -98,8 +98,8 @@ cat > "$HOME/.gitconfig.local" <<EOF
 EOF
 echo "Git user configured: $git_name <$git_email>"
 
-# Cursor
-link "$HOME/.dotfiles/cursor/settings.json" "$HOME/Library/Application Support/Cursor/User/settings.json"
+# VS Code
+link "$HOME/.dotfiles/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
 
 # Others
 link "$HOME/.dotfiles/tmux/.tmux.conf" "$HOME/.tmux.conf"
@@ -111,15 +111,15 @@ link "$HOME/.dotfiles/haskell/.ghci" "$HOME/.ghci"
 
 source "$HOME/.dotfiles/brew/install.sh"
 
-CURSOR_CODE="/Applications/Cursor.app/Contents/Resources/app/bin/code"
-if [ -x "$CURSOR_CODE" ]; then
-  ln -sf "$CURSOR_CODE" "$HOMEBREW_PREFIX/bin/code"
+VS_CODE="/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"
+if [ -x "$VS_CODE" ]; then
+  ln -sf "$VS_CODE" "$HOMEBREW_PREFIX/bin/code"
   echo "→ Installed 'code' CLI to $HOMEBREW_PREFIX/bin/code"
 else
-  echo "⚠️ Cursor.app not found at $CURSOR_CODE; install it via 'brew install --cask cursor' later."
+  echo "⚠️ Visual Studio Code.app not found at $VS_CODE; install it via 'brew install --cask visual-studio-code' later."
 fi
 
-source "$HOME/.dotfiles/cursor/extensions.sh"
+source "$HOME/.dotfiles/vscode/extensions.sh"
 source "$HOME/.dotfiles/terminal/install.sh"
 source "$HOME/.dotfiles/tmux/install.sh"
 source "$HOME/.dotfiles/javascript/install.sh"

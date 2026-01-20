@@ -19,7 +19,6 @@ brew "wget" # allow non-GUI file download from the web
 cask "anki"
 cask "blender"
 cask "calibre"
-cask "cursor"
 cask "dbeaver-community"
 cask "discord"
 cask "docker-desktop"
@@ -34,6 +33,7 @@ cask "miniforge"
 cask "postman"
 cask "quicklook-json"
 cask "steam"
+cask "visual-studio-code"
 cask "zoom"
 
 # Mac App Store

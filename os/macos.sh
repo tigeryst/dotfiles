@@ -147,7 +147,7 @@ for app in \
   "/Applications/GoodNotes" \
   "/Applications/Google Chrome" \
   "/Applications/iTerm" \
-  "/Applications/Cursor" \
+  "/Applications/Visual Studio Code" \
   "/Applications/GitHub Desktop" \
   "/System/Applications/App Store" \
   "/System/Applications/iPhone Mirroring" \
