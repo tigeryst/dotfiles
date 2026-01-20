@@ -6,6 +6,7 @@
     "*.ipynb": "jupyter-notebook",
     "*.pdf": "latex-workshop-pdf-hook"
   },
+  "workbench.sideBar.location": "right",
   "editor.formatOnSave": true,
   "editor.bracketPairColorization.enabled": true,
   "editor.guides.bracketPairs": "active",
@@ -44,7 +45,6 @@
   "files.autoSave": "afterDelay",
   "explorer.confirmDragAndDrop": false,
   "terminal.integrated.inheritEnv": false,
-  
   // Python settings
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter",
