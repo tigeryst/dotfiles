@@ -4,7 +4,7 @@
   "workbench.iconTheme": "material-icon-theme",
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook",
-    "*.pdf": "latex-workshop-pdf-hook"
+    "*.pdf": "latex-workshop-pdf-hook",
   },
   "workbench.sideBar.location": "right",
   "editor.formatOnSave": true,
@@ -19,28 +19,28 @@
       {
         "scope": "support.type.property-name",
         "settings": {
-          "foreground": "#62c1d4"
-        }
+          "foreground": "#62c1d4",
+        },
       },
       {
         "scope": "support.type.property-name.table",
         "settings": {
-          "foreground": "#4EC9B0"
-        }
+          "foreground": "#4EC9B0",
+        },
       },
       {
         "scope": "support.type.property-name.array",
         "settings": {
-          "foreground": "#569CD6"
-        }
+          "foreground": "#569CD6",
+        },
       },
       {
         "scope": "constant.other.time",
         "settings": {
-          "foreground": "#DCDCAA"
-        }
-      }
-    ]
+          "foreground": "#DCDCAA",
+        },
+      },
+    ],
   },
   "files.autoSave": "afterDelay",
   "explorer.confirmDragAndDrop": false,
@@ -50,33 +50,31 @@
     "editor.defaultFormatter": "ms-python.black-formatter",
     "editor.codeActionsOnSave": {
       "source.fixAll.ruff": "explicit",
-      "source.organizeImports.ruff": "explicit"
-    }
+      "source.organizeImports.ruff": "explicit",
+    },
   },
   "ruff.enable": true,
-  "ruff.lint.run": "onType",
   "python.analysis.typeCheckingMode": "basic",
   "notebook.defaultFormatter": "ms-python.black-formatter",
   // SQL settings
   "[sql]": {
     "editor.defaultFormatter": "sqlfluff.sqlfluff"
   },
-  "sqlfluff.lint.enable": true,
-  "sqlfluff.format.enable": true,
   "sqlfluff.excludeRules": [
     "ambiguous.column_count",
     "layout.long_lines",
     "layout.cte_newline",
     "references.keywords",
     "structure.column_order",
-    "capitalisation.identifiers"
+    "capitalisation.identifiers",
   ],
+  "sqlfluff.dialect": "ansi",
   // LaTeX settings
   "latex-workshop.view.pdf.viewer": "tab",
   "latex-workshop.latex.autoClean.run": "onBuilt",
   "latex-workshop.formatting.latex": "latexindent",
   "[latex]": {
-    "editor.defaultFormatter": "James-Yu.latex-workshop"
+    "editor.defaultFormatter": "James-Yu.latex-workshop",
   },
   // Git settings
   "git.autofetch": true,
@@ -91,16 +89,15 @@
   "files.associations": {
     "*.gs": "javascript",
     "*.css": "tailwindcss",
-    "*.tmux.conf": "shellscript"
+    "*.tmux.conf": "shellscript",
   },
   // Others
   "[toml]": {
-    "editor.defaultFormatter": "tamasfe.even-better-toml"
+    "editor.defaultFormatter": "tamasfe.even-better-toml",
   },
   "[shellscript]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
+    "editor.defaultFormatter": "foxundermoon.shell-format",
   },
-  "workbench.secondarySideBar.defaultVisibility": "hidden",
   "gitlens.ai.model": "vscode",
-  "gitlens.ai.vscode.model": "copilot:gpt-4.1"
+  "gitlens.ai.vscode.model": "copilot:gpt-4.1",
 }
