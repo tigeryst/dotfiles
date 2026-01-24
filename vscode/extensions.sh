@@ -4,6 +4,7 @@ set -eu
 echo "Installing VS Code extensions..."
 
 code --install-extension aaron-bond.better-comments # Better Comments
+code --install-extension bierner.markdown-mermaid # Mermaid diagrams in Markdown
 code --install-extension Catppuccin.catppuccin-vsc # Catppuccin Theme
 code --install-extension charliermarsh.ruff # Ruff linter for Python
 code --install-extension DavidAnson.vscode-markdownlint # Markdownlint
