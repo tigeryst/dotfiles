@@ -12,6 +12,9 @@ pip install --upgrade setuptools
 
 pip install virtualenv
 
+pipx ensurepath
+pipx install sqlfluff
+
 conda init zsh
 conda config --set auto_activate_base false
 

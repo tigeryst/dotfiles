@@ -8,12 +8,13 @@ brew "htop"
 brew "imagemagick"
 brew "mas"
 brew "mysql"
-brew "tree"
 brew "node"
 brew "openjdk"
+brew "pipx"
 brew "pyenv"
 brew "rustup"
 brew "tmux" # terminal multiplexer
+brew "tree"
 brew "wget" # allow non-GUI file download from the web
 
 # Cask
