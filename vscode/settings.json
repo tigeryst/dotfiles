@@ -59,7 +59,7 @@
   "notebook.defaultFormatter": "ms-python.black-formatter",
   // SQL settings
   "[sql]": {
-    "editor.defaultFormatter": "sqlfluff.sqlfluff"
+    "editor.defaultFormatter": "sqlfluff.vscode-sqlfluff",
   },
   "sqlfluff.excludeRules": [
     "ambiguous.column_count",
@@ -82,7 +82,7 @@
   "git.confirmSync": false,
   // Docker settings
   "[dockerfile]": {
-    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+    "editor.defaultFormatter": "ms-azuretools.vscode-containers",
   },
   // Spell checking settings
   "cSpell.language": "en-US",
