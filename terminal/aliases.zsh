@@ -10,7 +10,16 @@ mkcd() {
 # --------------------
 # Packages
 # --------------------
-alias aupdate="brew update && brew upgrade && brew cleanup && mas upgrade"
+alias aupdate='
+echo "🍺 Updating Homebrew…" &&
+brew update &&
+brew upgrade &&
+brew cleanup
+
+echo "🍎 Updating Mac App Store apps…"
+mas upgrade
+'
+
 
 # --------------------
 # Directories
