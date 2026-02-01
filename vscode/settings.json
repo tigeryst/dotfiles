@@ -57,6 +57,7 @@
   "ruff.enable": true,
   "python.analysis.typeCheckingMode": "basic",
   "notebook.defaultFormatter": "ms-python.black-formatter",
+  "notebook.formatOnSave.enabled": true,
   // SQL settings
   "[sql]": {
     "editor.defaultFormatter": "sqlfluff.vscode-sqlfluff",
