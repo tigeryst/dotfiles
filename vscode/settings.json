@@ -48,7 +48,7 @@
   "terminal.integrated.inheritEnv": false,
   // Python settings
   "[python]": {
-    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.defaultFormatter": "charliermarsh.ruff",
     "editor.codeActionsOnSave": {
       "source.fixAll.ruff": "explicit",
       "source.organizeImports.ruff": "explicit",
@@ -56,7 +56,7 @@
   },
   "ruff.enable": true,
   "python.analysis.typeCheckingMode": "basic",
-  "notebook.defaultFormatter": "ms-python.black-formatter",
+  "notebook.defaultFormatter": "charliermarsh.ruff",
   "notebook.formatOnSave.enabled": true,
   // SQL settings
   "[sql]": {
