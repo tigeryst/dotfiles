@@ -76,7 +76,7 @@ link() {
       echo "✓ $linkpath already -> $target"
       return 0
     else
-      rm -f "$linkpath"
+      rm -rf "$linkpath"
     fi
   fi
   ln -s "$target" "$linkpath"
@@ -100,6 +100,10 @@ echo "Git user configured: $git_name <$git_email>"
 
 # VS Code
 link "$HOME/.dotfiles/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
+
+# Claude
+link "$HOME/.dotfiles/claude/settings.json" "$HOME/.claude/settings.json"
+link "$HOME/.dotfiles/claude/skills" "$HOME/.claude/skills"
 
 # Others
 link "$HOME/.dotfiles/tmux/.tmux.conf" "$HOME/.tmux.conf"
