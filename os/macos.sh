@@ -138,14 +138,13 @@ defaults write com.apple.dock persistent-apps -array
 for app in \
   "/System/Applications/Apps" \
   "/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari" \
+  "/Applications/Google Chrome" \
   "/Applications/LINE" \
   "/Applications/WhatsApp" \
-  "/Applications/Discord" \
   "/Applications/Slack" \
   "/Applications/Microsoft Teams" \
   "/System/Applications/FaceTime" \
-  "/Applications/GoodNotes" \
-  "/Applications/Google Chrome" \
+  "/Applications/Claude" \
   "/Applications/iTerm" \
   "/Applications/Visual Studio Code" \
   "/Applications/GitHub Desktop" \
