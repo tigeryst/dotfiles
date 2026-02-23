@@ -4,6 +4,7 @@ set -eu
 echo "Installing VS Code extensions..."
 
 code --install-extension aaron-bond.better-comments # Better Comments
+code --install-extension atlassian.atlascode # Atlassian/Jira extension
 code --install-extension bierner.markdown-mermaid # Mermaid diagrams in Markdown
 code --install-extension Catppuccin.catppuccin-vsc # Catppuccin Theme
 code --install-extension charliermarsh.ruff # Ruff linter for Python
@@ -21,7 +22,6 @@ code --install-extension justusadam.language-haskell # Haskell Syntax Highlighti
 code --install-extension mechatroner.rainbow-csv # Rainbow CSV
 code --install-extension mikestead.dotenv # DotENV
 code --install-extension ms-azuretools.vscode-docker # Docker
-code --install-extension ms-python.black-formatter # Black Formatter for Python
 code --install-extension ms-python.python # Python
 code --install-extension ms-toolsai.jupyter # Jupyter
 code --install-extension ms-vscode-remote.remote-containers # Dev Containers
