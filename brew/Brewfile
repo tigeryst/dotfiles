@@ -15,6 +15,7 @@ brew "pyenv"
 brew "rustup"
 brew "tmux" # terminal multiplexer
 brew "tree"
+brew "uv" # modern python project manager
 brew "wget" # allow non-GUI file download from the web
 
 # Cask
