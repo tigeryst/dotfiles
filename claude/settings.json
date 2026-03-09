@@ -1,6 +1,6 @@
 {
+  "model": "opus",
   "permissions": {
-    "permissions": {
     "allow": [
       // Shell basics
       "Bash(date:*)",
@@ -48,10 +48,6 @@
       "Read(**/*.key)"
     ]
   },
-  "statusLine": {
-    "type": "command",
-    "command": "input=$(cat); model=$(echo \"$input\" | jq -r '.model.display_name'); cwd=$(echo \"$input\" | jq -r '.workspace.current_dir'); remaining=$(echo \"$input\" | jq -r '.context_window.remaining_percentage // empty'); git_info=''; if git --no-optional-locks -C \"$cwd\" rev-parse --git-dir > /dev/null 2>&1; then branch=$(git --no-optional-locks -C \"$cwd\" symbolic-ref --short HEAD 2>/dev/null); [ -n \"$branch\" ] && git_info=$(printf \" \\033[36mgit:(\\033[96m%s\\033[36m)\\033[0m\" \"$branch\"); fi; dir_name=$(basename \"$cwd\"); dir_display=$(printf \"\\033[33m📁 \\033[93m%s\\033[0m\" \"$dir_name\"); model_display=$(printf \"\\033[34m🤖 \\033[94m%s\\033[0m\" \"$model\"); context_display=''; if [ -n \"$remaining\" ]; then remaining_int=${remaining%.*}; if [ \"$remaining_int\" -ge 50 ]; then context_color=\"\\033[32m\"; context_emoji=\"✓\"; elif [ \"$remaining_int\" -ge 20 ]; then context_color=\"\\033[33m\"; context_emoji=\"⚠\"; else context_color=\"\\033[31m\"; context_emoji=\"⚠\"; fi; context_display=$(printf \" \\033[90m|\\033[0m %s ${context_color}%.1f%%\\033[0m\" \"$context_emoji\" \"$remaining\"); fi; printf \"%s%s \\033[90m|\\033[0m %s%s\\n\" \"$dir_display\" \"$git_info\" \"$model_display\" \"$context_display\""
-  },
   "enabledPlugins": {
     "code-review@claude-plugins-official": true,
     "feature-dev@claude-plugins-official": true,
@@ -60,5 +56,21 @@
     "commit-commands@claude-plugins-official": true,
     "pr-review-toolkit@claude-plugins-official": true
   },
-  "model": "opus"
+  "statusLine": {
+    "type": "command",
+    "command": "input=$(cat); model=$(echo \"$input\" | jq -r '.model.display_name'); cwd=$(echo \"$input\" | jq -r '.workspace.current_dir'); remaining=$(echo \"$input\" | jq -r '.context_window.remaining_percentage // empty'); git_info=''; if git --no-optional-locks -C \"$cwd\" rev-parse --git-dir > /dev/null 2>&1; then branch=$(git --no-optional-locks -C \"$cwd\" symbolic-ref --short HEAD 2>/dev/null); [ -n \"$branch\" ] && git_info=$(printf \" \\033[36mgit:(\\033[96m%s\\033[36m)\\033[0m\" \"$branch\"); fi; dir_name=$(basename \"$cwd\"); dir_display=$(printf \"\\033[33m📁 \\033[93m%s\\033[0m\" \"$dir_name\"); model_display=$(printf \"\\033[34m🤖 \\033[94m%s\\033[0m\" \"$model\"); context_display=''; if [ -n \"$remaining\" ]; then remaining_int=${remaining%.*}; if [ \"$remaining_int\" -ge 50 ]; then context_color=\"\\033[32m\"; context_emoji=\"✓\"; elif [ \"$remaining_int\" -ge 20 ]; then context_color=\"\\033[33m\"; context_emoji=\"⚠\"; else context_color=\"\\033[31m\"; context_emoji=\"⚠\"; fi; context_display=$(printf \" \\033[90m|\\033[0m %s ${context_color}%.1f%%\\033[0m\" \"$context_emoji\" \"$remaining\"); fi; printf \"%s%s \\033[90m|\\033[0m %s%s\\n\" \"$dir_display\" \"$git_info\" \"$model_display\" \"$context_display\""
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'export PATH=\"$HOME/.local/bin:$PATH\" ; source .venv/bin/activate 2>/dev/null' >> \"$CLAUDE_ENV_FILE\""
+          }
+        ]
+      }
+    ]
+  }
 }
