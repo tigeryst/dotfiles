@@ -2,7 +2,6 @@
   "model": "opus",
   "permissions": {
     "allow": [
-      // Shell basics
       "Bash(date:*)",
       "Bash(echo:*)",
       "Bash(cat:*)",
@@ -17,19 +16,13 @@
       "Bash(find:*)",
       "Bash(cp:*)",
       "Bash(diff:*)",
-
-      // Git
       "Bash(git add:*)",
       "Bash(git status:*)",
       "Bash(git log:*)",
       "Bash(git diff:*)",
-
-      // Python tooling
       "Bash(ruff check:*)",
       "Bash(ruff format:*)",
       "Bash(pytest:*)",
-
-      // Environment management (no uv run)
       "Bash(uv pip:*)",
       "Bash(uv sync:*)",
       "Bash(uv lock:*)",
