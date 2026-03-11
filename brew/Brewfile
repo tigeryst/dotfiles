@@ -4,6 +4,8 @@ brew "ffmpeg" # convert video formats, frames to video, record, and stream
 brew "gh" # GitHub CLI
 brew "ghc" # Haskell compiler
 brew "git"
+brew "go"
+brew "golangci-lint" # linter for Go
 brew "htop"
 brew "imagemagick"
 brew "mas"
@@ -11,8 +13,10 @@ brew "mysql"
 brew "node"
 brew "openjdk"
 brew "pipx"
+brew "pre-commit" # managing and maintaining pre-commit hooks
 brew "pyenv"
 brew "rustup"
+brew "shellcheck" # static analysis tool for shell scripts
 brew "tmux" # terminal multiplexer
 brew "tree"
 brew "uv" # modern python project manager
