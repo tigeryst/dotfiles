@@ -27,15 +27,15 @@
       "Bash(uv lock:*)",
       "Bash(uv venv:*)",
       "Bash(uv add:*)",
-      "Bash(uv remove:*)"
+      "Bash(uv remove:*)",
+      "Read(.env.example)",
+      "Bash(go test:*)",
+      "Bash(bats:*)"
     ],
     "deny": [
       "Read(.env)",
       "Read(.env.*)",
       "Read(**/.env.local)",
-      "Read(**/secrets/*)",
-      "Read(**/*credential*)",
-      "Read(**/*secret*)",
       "Read(**/*.pem)",
       "Read(**/*.key)"
     ]

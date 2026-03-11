@@ -16,8 +16,10 @@ code --install-extension esbenp.prettier-vscode # Prettier
 code --install-extension foxundermoon.shell-format # Shell-Format
 code --install-extension GitHub.copilot # GitHub Copilot
 code --install-extension GitHub.copilot-chat # GitHub Copilot Chat
+code --install-extension golang.go # Go
 code --install-extension haskell.haskell # Haskell
 code --install-extension james-yu.latex-workshop # LaTeX Workshop
+code --install-extension jetmartin.bats # Bats testing framework for Bash
 code --install-extension justusadam.language-haskell # Haskell Syntax Highlighting
 code --install-extension mechatroner.rainbow-csv # Rainbow CSV
 code --install-extension mikestead.dotenv # DotENV
